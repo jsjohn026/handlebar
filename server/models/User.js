@@ -16,6 +16,18 @@ const UserSchema = new Schema({
     min: 8,
     max: 32
   },
+  basket: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "products"
+    }
+  ],
+  products: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "products"
+    }
+  ],
   date: {
     type: Date,
     default: Date.now
