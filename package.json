@@ -1,0 +1,19 @@
+{
+  "name": "handlebar",
+  "version": "1.0.0",
+  "description": "[![](https://github.com/jsjohn026/Handlebar/blob/master/app/assets/images/header-icon-192x192.png)](https://github.com/jsjohn026/Handlebar/blob/master/app/assets/images/header-icon-192x192.png)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jsjohn026/handlebar.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jsjohn026/handlebar/issues"
+  },
+  "homepage": "https://github.com/jsjohn026/handlebar#readme"
+}
