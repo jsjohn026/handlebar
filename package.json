@@ -4,7 +4,7 @@
   "description": "[![](https://github.com/jsjohn026/Handlebar/blob/master/app/assets/images/header-icon-192x192.png)](https://github.com/jsjohn026/Handlebar/blob/master/app/assets/images/header-icon-192x192.png)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,17 @@
   "bugs": {
     "url": "https://github.com/jsjohn026/handlebar/issues"
   },
-  "homepage": "https://github.com/jsjohn026/handlebar#readme"
+  "homepage": "https://github.com/jsjohn026/handlebar#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-graphql": "^0.8.0",
+    "graphql": "^14.3.1",
+    "graphql-tag": "^2.10.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.6.0",
+    "nodemon": "^1.19.1",
+    "validator": "^11.0.0"
+  }
 }
