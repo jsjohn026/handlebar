@@ -51,6 +51,14 @@ Node Image
 
 ### **David Suon**
 
+### GIT Workflow
+  - after a merged pull request or before creating one...
+  - in your local repository...
+    - git pull origin <feature_branch>
+    - resolve any merge conflicts
+    - commit changes
+    - git push <feature_branch>
+
 ## June 21 - July 1
 
 ### Day 1 (Friday)
@@ -61,7 +69,9 @@ Node Image
 
 ### Day 2 (Monday)
   - User Auth
-  - Splash & NavBar
+    - Backend - **David**
+    - Frontend - **Gordy**
+  - Splash & NavBar - **Jasmine & friends**
 
 
 ### Day 3
