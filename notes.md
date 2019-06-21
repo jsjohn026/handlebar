@@ -26,3 +26,4 @@ users
   - stars
   - author_id
   - product_id
+  
