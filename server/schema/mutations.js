@@ -92,11 +92,15 @@ const mutation = new GraphQLObjectType({
           const product = new Product(data)
           return Genre.findById(data.genre).then(genre => {
             genre.products.push(product)
-              return Promise.all([product.save(), genre.save()] ).then(
-                ([product,category]) => {
-                  return product
-                }
-              )
+              return User.findById(data.owner_id).then(user => {
+                user.products.push(product)
+                return Promise.all([product.save(), genre.save(), user.save()] ).then(
+                  ([product,category, user]) => {
+                    console.log(product)
+                    return product
+                  }
+                )
+              })
             })
           
         // } else {
@@ -113,11 +117,11 @@ const mutation = new GraphQLObjectType({
         const product = Product.findById(id)
         Genre.find({}).then(genres => 
           genres.forEach(genre => {
-              genre.products.pull(product)
+              genre.products.pull(product._id)
               genre.save()
             })
         )
-        return product.remove().then(product => product).catch(err => null)
+        return product.deleteOne()
       }
     },
   }//end of fields
