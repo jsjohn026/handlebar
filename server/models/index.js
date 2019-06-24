@@ -1,3 +1,3 @@
-// require('./User');
+require('./User');
 // require('./Genre');
 // require('./Product');
