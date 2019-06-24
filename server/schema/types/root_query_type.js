@@ -4,12 +4,12 @@ const graphql = require("graphql");
 const { GraphQLObjectType, GraphQLList, GraphQLID, GraphQLNonNull } = graphql;
 
 const UserType = require("./user_type");
-// const CategoryType = require("./category_type");
-// const ProductType = require("./product_type");
+const GenreType = require("./genre_type");
+const ProductType = require("./product_type");
 
 const User = mongoose.model("users");
-// const Category = mongoose.model("categories");
-// const Product = mongoose.model("products");
+const Genre = mongoose.model("genres");
+const Product = mongoose.model("products");
 
 const RootQueryType = new GraphQLObjectType({
   name: "RootQueryType",
@@ -26,8 +26,34 @@ const RootQueryType = new GraphQLObjectType({
       resolve(_, args) {
         return User.findById(args._id)
       }
+    },
+    products: {
+      type: new GraphQLList(ProductType),
+      resolve() {
+        return Product.find({});
+      }
+    },
+    product: {
+      type: ProductType,
+      args: {_id: { type: new GraphQLNonNull(GraphQLID)} },
+      resolve(_, {_id}) {
+        return Product.findById(_id)
+      }
+    },
+    genres: {
+      type: new GraphQLList(GenreType),
+      resolve(){
+        return Genre.find({})
+      }
+    },
+    genre: {
+      type: GenreType,
+      args: {_id: {type: new GraphQLNonNull(GraphQLID)} },
+      resolve(_, args){
+        return Genre.findById(args._id)
+      }
     }
-  })
+  })// end of fields
 });
 
 module.exports = RootQueryType;
