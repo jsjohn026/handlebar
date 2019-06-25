@@ -6,14 +6,16 @@ import { REGISTER_USER } from "../../graphql/mutations";
 class Register extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { name: "", email: "", password: "" };
+    this.state = { name: "", email: "", password: "", message: "" };
 
     this.updateInput = this.updateInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleError = this.handleError.bind(this);
   }
 
   updateInput(field) {
     return event => {
+      if (this.state.message) this.setState({ message: "" });
       this.setState({ [field]: event.target.value });
     };
   }
@@ -29,7 +31,12 @@ class Register extends React.Component {
     });
   }
 
+  handleError(error) {
+    this.setState({ message: error.graphQLErrors[0].message });
+  }
+  
   render() {
+    const { name, email, password, message } = this.state;
     return (
       <Mutation
         mutation={REGISTER_USER}
@@ -37,19 +44,21 @@ class Register extends React.Component {
           const { token } = data.register;
           localStorage.setItem("auth-token", token);
           this.props.history.push("/");
-        }}>
+        }}
+        onError={this.handleError}>
         {registerUser => (
           <div className="auth-page-container">
             <div className="auth-form-container">
               <h1>Register for Handlebar</h1>
+              <span>Already have an account? <Link to="/login">Log In</Link></span>
+              <div className="auth-form-error-message">{message}</div>
               <form className="auth-form" onSubmit={event => this.handleSubmit(event, registerUser)}>
                 <input className="auth-form-input" type="text" value={this.state.name} onChange={this.updateInput("name")} placeholder="Name"></input>
                 <input className="auth-form-input" type="text" value={this.state.email} onChange={this.updateInput("email")} placeholder="Email Address"></input>
                 <input className="auth-form-input" type="password" value={this.state.password} onChange={this.updateInput("password")} placeholder="Password"></input>
-                <button className="auth-form-button">Register</button>
+                <button className="auth-form-button" disabled={!(name && email && password)}>Register</button>
               </form>
             </div>
-            <Link to="/login">Log into Handlebar</Link>
           </div>
         )}
       </Mutation>
