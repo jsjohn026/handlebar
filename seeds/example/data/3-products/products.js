@@ -11,7 +11,7 @@ const products = [
         owner: getObjectId("Jimmy"),
         genre: getObjectId("electronics"),
         date: new Date(),
-        image_url: ""
+        image_url: "https://upload.wikimedia.org/wikipedia/commons/7/77/IPod_nano_5G.png"
     },
     {
         id: getObjectId('Portable Phone Charger'),
@@ -21,7 +21,7 @@ const products = [
         owner: getObjectId("Jimmy"),
         genre: getObjectId("electronics"),
         date: new Date(),
-        image_url: ""
+        image_url: "https://www.boschautoparts.com/documents/101512/146323/T4Lft_Desktop.png/213e40da-7852-4535-9d55-59450c3bc801?t=1470940975428"
     },
     {
         id: getObjectId('Mystery Food X'),
@@ -31,7 +31,7 @@ const products = [
         owner: getObjectId("Anne"),
         genre: getObjectId("foods and beverages"),
         date: new Date(),
-        image_url: ""
+        image_url: "http://upload.wikimedia.org/wikipedia/commons/e/e6/Foodlogo_question_mark.png"
     },
     {
         id: getObjectId('Cookies'),
@@ -41,7 +41,7 @@ const products = [
         owner: getObjectId("Marge"),
         genre: getObjectId("foods and beverages"),
         date: new Date(),
-        image_url: ""
+        image_url: "https://thedessertstand.com/wp-content/uploads/2016/03/p-12117-ChocolateChipCookies__48364.1340983937.1280.1280.gif"
     },
     {
         id: getObjectId('???????'),
@@ -51,7 +51,7 @@ const products = [
         owner: getObjectId("Betty"),
         genre: getObjectId("genreless"),
         date: new Date(),
-        image_url: ""
+        image_url: "https://image.flaticon.com/icons/png/512/36/36601.png"
     },
     {
         id: getObjectId('Toilet Paper'),
@@ -61,7 +61,17 @@ const products = [
         owner: getObjectId("Jimmy"),
         genre: getObjectId("cool"),
         date: new Date(),
-        image_url: ""
+        image_url: "https://www.sccpre.cat/mypng/full/128-1282914_toilet-paper-png-image-toilet-paper-clipart-transparent.png"
+    },
+    {
+        id: getObjectId('Water Gun'),
+        name: "Nerf Water Gun",
+        price: 6.00,
+        description: "More fun than using the garden hose",
+        owner: getObjectId("Anne"),
+        genre: getObjectId("cool"),
+        date: new Date(),
+        image_url: "https://images-na.ssl-images-amazon.com/images/I/71mwVAx1TBL._SX466_.jpg"
     },
     
 ]

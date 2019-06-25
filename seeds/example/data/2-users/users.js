@@ -19,7 +19,7 @@ const users = [
         email: "Anne@Anne.com",
         password: samePass,
         date: new Date(),
-        products: getObjectIds(["Mystery Food X"])
+        products: getObjectIds(["Mystery Food X","Water Gun"])
     },
     {
         id: getObjectId('Betty'),
