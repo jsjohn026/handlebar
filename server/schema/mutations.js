@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+mongoose.set("useFindAndModify", false)
 const graphql = require("graphql");
 const { 
   GraphQLObjectType, 
@@ -86,6 +87,7 @@ const mutation = new GraphQLObjectType({
         owner_id: {type: GraphQLID} 
       },
       resolve: async(parent, data, context) => {
+        // auth for frontend
         // const validUser = await AuthService.verifyUser( {token: context.token} )
         
         // if(validUser.loggedIn) {
@@ -122,6 +124,44 @@ const mutation = new GraphQLObjectType({
             })
         )
         return product.deleteOne()
+      }
+    },
+    updateProductGenre: {
+      type: ProductType,
+      args: {
+        _id: {type: GraphQLID},
+        genre_id: {type: GraphQLID}
+      },
+      resolve(parent, args) {
+        return Product.updateProductGenre(args._id, args.genre_id)
+      }
+    },
+    updateProduct: {
+      type: ProductType,
+      args: {
+        _id: {type: GraphQLID},
+        name: {type: GraphQLString},
+        description: {type: GraphQLString},
+        price: {type: GraphQLFloat},
+        image_url: {type: GraphQLString}
+      },
+      resolve(parentValue, {_id, name, description, price, image_url}) {
+        const updateObj = {};
+
+        if(_id) updateObj._id = _id
+        if(name) updateObj.name = name
+        if(description) updateObj.description = description
+        if(price) updateObj.price = price
+        if(image_url) updateObj.image_url = image_url
+
+        return Product.findByIdAndUpdate(
+          { _id: _id },
+          { $set: updateObj },
+          { new : true},
+          (err, product) => {
+            return product
+          }
+        );
       }
     },
   }//end of fields
