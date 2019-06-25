@@ -13,21 +13,21 @@ const UserSchema = new Schema({
   password: {
     type: String,
     required: true,
-    min: 8,
+    min: 6,
     max: 32
   },
-  basket: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "products"
-    }
-  ],
-  products: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "products"
-    }
-  ],
+  // basket: [
+  //   {
+  //     type: Schema.Types.ObjectId,
+  //     ref: "products"
+  //   }
+  // ],
+  // products: [
+  //   {
+  //     type: Schema.Types.ObjectId,
+  //     ref: "products"
+  //   }
+  // ],
   date: {
     type: Date,
     default: Date.now
