@@ -43,7 +43,7 @@ const mutation = new GraphQLObjectType({
       args: {
         _id: { type: GraphQLID }
       },
-      resolve(_,args) {
+      resolve(_, args) {
         return AuthService.logout(args)
       }
     },
