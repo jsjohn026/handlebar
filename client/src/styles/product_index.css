@@ -1,0 +1,67 @@
+/* 
+https://s3.eu-west-1.amazonaws.com/bwmedia-primary/consumerAssets/inset/_1024xAUTO_crop_center-center_none/Strawberry-Custom.png?mtime=20190514085522
+https://cdn130.picsart.com/294147476024211.png?r1024x1024
+
+https://upload.wikimedia.org/wikipedia/commons/7/77/IPod_nano_5G.png
+https://www.boschautoparts.com/documents/101512/146323/T4Lft_Desktop.png/213e40da-7852-4535-9d55-59450c3bc801?t=1470940975428
+http://upload.wikimedia.org/wikipedia/commons/e/e6/Foodlogo_question_mark.png
+https://thedessertstand.com/wp-content/uploads/2016/03/p-12117-ChocolateChipCookies__48364.1340983937.1280.1280.gif
+https://image.flaticon.com/icons/png/512/36/36601.png
+https://www.sccpre.cat/mypng/full/128-1282914_toilet-paper-png-image-toilet-paper-clipart-transparent.png
+ */
+
+.product-index-page {
+  
+}
+
+.product-index-page h2 {
+  max-width: 1250px;
+  margin: 0 auto;
+  padding-left: 20px;
+}
+
+
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+.product-list-item {
+  background: #f1f1f1;
+  margin: 10px;
+}
+
+.product-list-item a {
+  text-decoration: none;
+  color: black;
+}
+
+.product-list-item-image {
+  margin: 15px;
+  height: 225px;
+  width: 250px;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.product-list-item-body {
+  padding: 25px;
+}
+
+.product-list-item-name, 
+.product-list-item-price {
+  padding-bottom: 15px;
+}
+
+.product-list-item-genre {
+  font-size: 10px;
+}
+
+.product-list-item-row {
+  display: flex;
+  justify-content: space-between;
+}

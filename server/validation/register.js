@@ -23,7 +23,7 @@ module.exports = function validateLoginInput(data) {
   }
 
   if (!Validator.isLength(data.password, { min: 6 })) {
-    return { message: 'Password must be a min of 6 chars', isValid: false }
+    return { message: 'Password must be at least characters', isValid: false }
   }
 
   return {
