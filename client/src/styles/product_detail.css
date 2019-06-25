@@ -1,0 +1,11 @@
+.product-detail-page {
+  
+}
+
+.product-detail-image {
+  height: 500px;
+  width: 500px;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}

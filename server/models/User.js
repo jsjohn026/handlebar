@@ -22,12 +22,12 @@ const UserSchema = new Schema({
   //     ref: "products"
   //   }
   // ],
-  // products: [
-  //   {
-  //     type: Schema.Types.ObjectId,
-  //     ref: "products"
-  //   }
-  // ],
+  products: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "products"
+    }
+  ],
   date: {
     type: Date,
     default: Date.now

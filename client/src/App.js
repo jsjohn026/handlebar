@@ -3,7 +3,7 @@ import { Route } from "react-router-dom";
 import "./styles/reset.css";
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
-import ProductIndex from "./components/products/ProductsIndex";
+import ProductIndex from "./components/products/ProductIndex";
 import ProductDetail from "./components/products/ProductDetail";
 import Main from "./components/main/main_page";
 
