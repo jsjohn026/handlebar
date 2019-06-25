@@ -11,7 +11,12 @@ export const FETCH_PRODUCTS = gql`
     products {
       _id
       name
+      genre {
+        name
+      }
       description
+      price
+      image_url
     }
   }
 `;
@@ -19,9 +24,17 @@ export const FETCH_PRODUCTS = gql`
 export const FETCH_PRODUCT = gql`
   query FetchProduct($id: ID!) {
     product(_id: $id) {
+      _id
       name
+      genre {
+        name
+      }
       description
-      weight
+      owner {
+        name
+      }
+      price
+      image_url
     }
   }
 `;

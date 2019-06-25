@@ -15,7 +15,7 @@ const ProductSchema = new Schema({
     type: String,
     required: true
   },
-  owner_id: {
+  owner: {
     type: Schema.Types.ObjectId,
     // validate: [
     //   userExistsValidator,
