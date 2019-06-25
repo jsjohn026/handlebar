@@ -12,9 +12,20 @@ const GenreIndex = () => {
             if (error) return `Error! ${error.message}`;
 
             return(
-                <div>
+                <div className="genre-index-container">
                     <h2>Some genres</h2>
-                    
+                    <ul>
+                        {data.genres.map(genre => {
+                            return (
+                                <li key={genre._id}>
+                                    <div  className="genre-index-item">
+                                        <p>{genre.name}</p>
+                                    </div>
+
+                                </li>
+                            );
+                        })}
+                    </ul>
                 </div>
             )
         }}
