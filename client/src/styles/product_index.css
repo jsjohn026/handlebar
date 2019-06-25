@@ -1,0 +1,51 @@
+/* 
+https://s3.eu-west-1.amazonaws.com/bwmedia-primary/consumerAssets/inset/_1024xAUTO_crop_center-center_none/Strawberry-Custom.png?mtime=20190514085522
+https://cdn130.picsart.com/294147476024211.png?r1024x1024
+ */
+
+.product-index-page {
+  
+}
+
+.product-index-page h2 {
+
+}
+
+
+.product-list {
+  display: flex;
+  padding: 10px;
+}
+
+.product-list-item {
+  background: #f1f1f1;
+  margin: 10px;
+}
+
+.product-list-item a {
+  text-decoration: none;
+  color: black;
+}
+
+.product-list-item-image {
+  margin: 15px;
+  height: 225px;
+  width: 250px;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.product-list-item-body {
+  padding: 25px;
+}
+
+.product-list-item-body, 
+.product-list-item-body > h3 {
+  padding-bottom: 15px;
+}
+
+.product-list-item-row {
+  display: flex;
+  justify-content: space-between;
+}
