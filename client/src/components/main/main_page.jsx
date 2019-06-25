@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ProductIndex from "../products/ProductsIndex";
+import ProductIndex from "../products/ProductIndex";
 
 export class Main extends Component {
   render() {
