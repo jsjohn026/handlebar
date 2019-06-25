@@ -17,10 +17,10 @@ const ProductType = new GraphQLObjectType({
             }
         },
         description: {type: GraphQLString},
-        owner_id: {
+        owner: {
             type: require('./user_type'),
             resolve(parentValue){
-                return User.findById(parentValue.owner_id)
+                return User.findById(parentValue.owner)
                 .then(user => user)
                 .catch(err => null)
             }

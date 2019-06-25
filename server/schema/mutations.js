@@ -84,7 +84,7 @@ const mutation = new GraphQLObjectType({
         image_url: {type: GraphQLString},
         price: {type: GraphQLFloat},
         genre: {type: GraphQLID},
-        owner_id: {type: GraphQLID} 
+        owner: {type: GraphQLID} 
       },
       resolve: async(parent, data, context) => {
         // auth for frontend
@@ -94,7 +94,7 @@ const mutation = new GraphQLObjectType({
           const product = new Product(data)
           return Genre.findById(data.genre).then(genre => {
             genre.products.push(product)
-              return User.findById(data.owner_id).then(user => {
+              return User.findById(data.owner).then(user => {
                 user.products.push(product)
                 return Promise.all([product.save(), genre.save(), user.save()] ).then(
                   ([product,category, user]) => {
