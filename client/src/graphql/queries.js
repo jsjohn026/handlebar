@@ -38,3 +38,19 @@ export const FETCH_PRODUCT = gql`
     }
   }
 `;
+
+export const FETCH_GENRE_PRODUCTS = gql`
+  query FetchGenreProducts($id: ID!) {
+    genre(_id: $id) {
+      _id
+      name
+      products {
+        _id
+        name
+        description
+        price
+        image_url
+      }
+    }
+  }
+`;

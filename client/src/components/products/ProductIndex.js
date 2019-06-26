@@ -1,11 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import { Query } from "react-apollo";
 import { FETCH_PRODUCTS } from "../../graphql/queries";
 import "../../styles/product_index.css";
 
 const ProductIndex = () => {
   return (
+    // <Query query={FETCH_PRODUCTS} variables={{ id: this.props.match.params.genreId }}>
     <Query query={FETCH_PRODUCTS}>
       {({ loading, error, data }) => {
         if (loading) return "Loading...";
@@ -22,7 +23,7 @@ const ProductIndex = () => {
                     <div className="product-list-item-image" style={{backgroundImage: `url(${product.image_url})`}}/>
                     <div className="product-list-item-body">
                       <h3 className="product-list-item-name">{product.name}</h3>
-                      <span className="product-list-item-price">${product.price}</span>
+                      <span className="product-list-item-price">${product.price.toFixed(2)}</span>
                       <div className="product-list-item-bottom">
                         <div className="product-list-item-row">
                           <span className="product-list-item-rating">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
@@ -41,4 +42,4 @@ const ProductIndex = () => {
   );
 };
 
-export default ProductIndex;
+export default withRouter(ProductIndex);

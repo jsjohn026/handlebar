@@ -16,7 +16,7 @@ const ProductDetail = props => {
             </div>
             <div className="product-detail-body">
               <h2 className="product-detail-name">{data.product.name.toUpperCase()}</h2>
-              <span className="product-detail-price">${data.product.price}</span>
+              <span className="product-detail-price">${data.product.price.toFixed(2)}</span>
               <span className="product-detail-rating">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
               <span className="product-detail-genre">{data.product.genre.name.toUpperCase()}</span>
               <p className="product-detail-description">{data.product.description}</p>
