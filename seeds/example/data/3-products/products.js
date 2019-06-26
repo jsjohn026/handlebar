@@ -17,7 +17,7 @@ const products = [
         id: getObjectId('Portable Phone Charger'),
         name: "Portable Phone Charger",
         price: 40.50,
-        description: "Usb charger charges your phone on the go!",
+        description: "USB charger charges your phone on the go! Phone, wires, accessories, and adapters not included",
         owner: getObjectId("Jimmy"),
         genre: getObjectId("electronics"),
         date: new Date(),
