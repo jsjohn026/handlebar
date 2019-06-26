@@ -54,3 +54,13 @@ export const FETCH_GENRE_PRODUCTS = gql`
     }
   }
 `;
+
+export const FETCH_GENRES = gql`
+  query FetchGenres {
+    genres {
+      _id
+      name
+      image_url
+    }
+  }
+`;
