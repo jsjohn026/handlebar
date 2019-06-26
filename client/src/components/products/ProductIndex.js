@@ -1,22 +1,20 @@
 import React from "react";
 import { withRouter, Link } from "react-router-dom";
 import { Query } from "react-apollo";
-import { FETCH_PRODUCTS } from "../../graphql/queries";
+import { FETCH_GENRE } from "../../graphql/queries";
 import "../../styles/product_index.css";
 
-const ProductIndex = () => {
+const ProductIndex = props => {
   return (
-    // <Query query={FETCH_PRODUCTS} variables={{ id: this.props.match.params.genreId }}>
-    <Query query={FETCH_PRODUCTS}>
+    <Query query={FETCH_GENRE} variables={{ id: props.match.params.genreId }}>
       {({ loading, error, data }) => {
         if (loading) return "Loading...";
         if (error) return `Error! ${error.message}`;
-
         return (
           <div className="product-index-page">
             <h2>HANDLEBAR GOODS</h2>
             <ul className="product-list">
-              {data.products.map(product => {
+              {data.genre.products.map(product => {
                 return (<li key={product._id} className="product-list-item">
                   <Link to={`/products/${product._id}`}>
                     <div className="product-list-item-top"></div>

@@ -39,17 +39,19 @@ export const FETCH_PRODUCT = gql`
   }
 `;
 
-export const FETCH_GENRE_PRODUCTS = gql`
-  query FetchGenreProducts($id: ID!) {
+export const FETCH_GENRE = gql`
+  query FetchGenre($id: ID!) {
     genre(_id: $id) {
       _id
-      name
       products {
         _id
         name
         description
         price
         image_url
+        genre {
+          name
+        }
       }
     }
   }

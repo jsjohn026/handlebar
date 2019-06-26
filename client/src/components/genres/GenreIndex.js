@@ -10,7 +10,6 @@ const GenreIndex = () => {
         {({loading, error, data}) => {
             if (loading) return "Loading...";
             if (error) return `Error! ${error.message}`;
-            console.log(data)
             return(
                 <div className="genre-index-container">
                     <h2>Some genres</h2>
@@ -20,15 +19,12 @@ const GenreIndex = () => {
                                 <li key={genre._id} className="genre-index-item">
                                     <Link to={`/genres/${genre._id}`}>
                                         <div className="genre-index-item-top">
-                                            <div className="genre-index-item-image" style={{backgroundImage: `url(${genre.image_url})`}}>
-
-                                            </div>
+                                            <div className="genre-index-item-image" style={{backgroundImage: `url(${genre.image_url})`}}/>
                                             <div className="genre-index-item-body">
                                                 <h3 className="genre-index-h3-name">{genre.name.toUpperCase()}</h3>
                                             </div>
                                         </div>
                                     </Link>
-
                                 </li>
                             );
                         })}
