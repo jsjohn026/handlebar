@@ -71,7 +71,7 @@ Node Image
   - User Auth
     - Backend - **David**
     - Frontend - **Gordy**
-  - Splash & NavBar - **Jasmine & friends**
+  - Splash & NavBar - **Jasmine**
 
 
 ### Day 3

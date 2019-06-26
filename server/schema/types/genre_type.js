@@ -9,6 +9,7 @@ const GenreType = new GraphQLObjectType({
     fields: () => ({
         _id: {type: GraphQLID},
         name: { type: GraphQLString },
+        image_url: {type: GraphQLString},
         products: {
             type: new GraphQLList(ProductType),
              resolve(parentValue, {_id}) {
