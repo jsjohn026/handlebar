@@ -6,13 +6,12 @@ import Register from "./components/auth/Register";
 import ProductIndex from "./components/products/ProductIndex";
 import ProductDetail from "./components/products/ProductDetail";
 import Main from "./components/main/main_page";
-import GenreIndex from "./components/genres/GenreIndex";
+// import GenreIndex from "./components/genres/GenreIndex";
 
 const App = () => {
   return (
     <div>
       <Switch>
-        <Route exact path="/genres" component={GenreIndex} />
         <Route exact path="/genres/:genreId" component={ProductIndex} />
         <Route exact path="/products/:productId" component={ProductDetail} />
         <Route exact path="/login" component={Login} />

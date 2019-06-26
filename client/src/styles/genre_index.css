@@ -1,9 +1,33 @@
+.genre-index-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.genre-header-container{
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.genre-header-container > *{
+    margin: 12px 0;
+}
+
 .genre-index-list{
     display: flex;
     flex-wrap: wrap;
     padding: 10px;
 }
+.genre-main-header {
+    font-size: 36px;
+    font-weight: 500;
+}
 
+.genre-main-description{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color: #222;
+}
 .genre-index-item{
     margin: 10px;
     background-color: #f1f1f1;
