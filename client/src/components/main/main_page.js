@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import GenreIndex from "../genres/GenreIndex"
+import GenreIndex from "../genres/GenreIndex";
 
 
 export class Main extends Component {
