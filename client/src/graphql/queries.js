@@ -44,6 +44,7 @@ export const FETCH_GENRES = gql`
     genres {
       _id
       name
+      image_url
       products{
         name
         _id

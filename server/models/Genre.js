@@ -10,7 +10,8 @@ const GenreSchema = new Schema({
   products: [{
       type: Schema.Types.ObjectId,
       ref: 'products'
-  }]
+  }],
+  image_url: { type: String}
 });
 
 module.exports = Product = mongoose.model("genres", GenreSchema);

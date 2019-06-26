@@ -10,7 +10,7 @@ const GenreIndex = () => {
         {({loading, error, data}) => {
             if (loading) return "Loading...";
             if (error) return `Error! ${error.message}`;
-
+            console.log(data)
             return(
                 <div className="genre-index-container">
                     <h2>Some genres</h2>
