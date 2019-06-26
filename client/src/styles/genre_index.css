@@ -1,5 +1,7 @@
 .genre-index-list{
     display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
 }
 
 .genre-index-item{
@@ -20,6 +22,7 @@
 .genre-index-item-image{
     height: 225px;
     width: 250px;
+    margin: 15px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;

@@ -18,6 +18,7 @@ time, mark, audio, video {
 	font-family: "Clarkson", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	vertical-align: baseline;
 	-webkit-font-smoothing: antialiased;
+	color: inherit;
 }
 
 article, aside, details, figcaption, figure, 
