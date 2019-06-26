@@ -52,3 +52,17 @@ export const FETCH_GENRES = gql`
     }
   }
 `;
+
+export const FETCH_GENRE = gql`
+  query FetchGenre($id: ID!) {
+    genre(_id: $id){
+      name
+      products{
+        _id
+        name
+        price
+        image_url
+      }
+    }
+  }
+`;

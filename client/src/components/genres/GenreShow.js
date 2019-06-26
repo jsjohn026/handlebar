@@ -1,30 +1,28 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Query } from "react-apollo";
-import { FETCH_GENRES } from "../../graphql/queries";
-import "../../styles/genre_index.css"
+import { FETCH_GENRE } from "../../graphql/queries";
 
-const GenreIndex = () => {
+
+const GenreShow = (props) => {
   return (
-    <Query query={FETCH_GENRES} >
+    <Query query={FETCH_GENRE} variables={ {id: props.match.params.genreId} } >
         {({loading, error, data}) => {
             if (loading) return "Loading...";
             if (error) return `Error! ${error.message}`;
             console.log(data)
             return(
                 <div className="genre-index-container">
-                    <h2>Some genres</h2>
+                    <h2>{data.genre.name} PAGE</h2>
                     <ul className="genre-index-list">
-                        {data.genres.map(genre => {
+                        {data.genre.products.map(product => {
                             return (
-                                <li key={genre._id} className="genre-index-item">
-                                    <Link to={`/genres/${genre._id}`}>
+                                <li key={product._id} className="genre-index-item">
+                                    <Link to={`/products/${product._id}`}>
                                         <div className="genre-index-item-top">
-                                            <div className="genre-index-item-image" style={{backgroundImage: `url(${genre.image_url})`}}>
-
-                                            </div>
+                                            <h2>{product.name}</h2>
                                             <div className="genre-index-item-body">
-                                                <h3 className="genre-index-h3-name">{genre.name.toUpperCase()}</h3>
+                                                CLICK ME 
                                             </div>
                                         </div>
                                     </Link>
@@ -40,4 +38,4 @@ const GenreIndex = () => {
   );
 };
 
-export default GenreIndex;
+export default GenreShow;

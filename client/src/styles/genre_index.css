@@ -1,0 +1,27 @@
+.genre-index-list{
+    display: flex;
+}
+
+.genre-index-item{
+    margin: 10px;
+    background-color: #f1f1f1;
+}
+
+.genre-index-item a {
+    text-decoration: none;
+    color: black;
+}
+
+.genre-index-h3-name{
+    text-align: center;
+    margin: 5px 0;
+}
+
+.genre-index-item-image{
+    height: 225px;
+    width: 250px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
