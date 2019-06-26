@@ -90,8 +90,9 @@ const mutation = new GraphQLObjectType({
       async resolve(parent, data, context) {
         // auth for frontend
         const validUser = await AuthService.verifyUser( {token: context.token} )
-        
+        console.log(context)
         if(validUser.loggedIn) {
+          data.owner = validUser.id;
           const product = new Product(data)
           return Genre.findById(data.genre).then(genre => {
             genre.products.push(product)
