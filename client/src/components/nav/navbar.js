@@ -27,7 +27,20 @@ const NavBar = props => {
                       <li><div className="searchbar">searchbar here</div></li>
                       <li><div className="notifications">notifications icon</div></li>
                       <li><div className="dropdown-menu">dropdown menu</div>
-                      <button>LOGOUT</button>
+                      <button
+                        onClick={e => {
+                          e.preventDefault();
+                          localStorage.removeItem("auth-token");
+                          client.writeData({
+                            data: {
+                              isLoggedIn: false, 
+                              cart: []
+                            }
+                          });
+                        }}
+                      >
+                        LOGOUT
+                      </button>
                       </li>
                     </ul>
                   </nav>
