@@ -38,3 +38,31 @@ export const FETCH_PRODUCT = gql`
     }
   }
 `;
+
+export const FETCH_GENRE = gql`
+  query FetchGenre($id: ID!) {
+    genre(_id: $id) {
+      _id
+      products {
+        _id
+        name
+        description
+        price
+        image_url
+        genre {
+          name
+        }
+      }
+    }
+  }
+`;
+
+export const FETCH_GENRES = gql`
+  query FetchGenres {
+    genres {
+      _id
+      name
+      image_url
+    }
+  }
+`;

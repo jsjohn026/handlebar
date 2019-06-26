@@ -45,7 +45,7 @@ const mutation = new GraphQLObjectType({
       args: {
         _id: { type: GraphQLID }
       },
-      resolve(_,args) {
+      resolve(_, args) {
         return AuthService.logout(args)
       }
     },
@@ -61,7 +61,8 @@ const mutation = new GraphQLObjectType({
     newGenre: {
       type: GenreType,
       args: {
-        name: {type: GraphQLString }
+        name: {type: GraphQLString },
+        image_url: {type: GraphQLString}
       },
       resolve(parent, args) {
         return new Genre({name: args.name}).save()
