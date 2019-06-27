@@ -8,7 +8,7 @@ export class Main extends Component {
   render() {
     return (
       <div className="splash-main-container">
-        <h1 style={{textAlign: "center", margin: "8px"}}>Handlebar: An Online Store (navbar me)</h1>
+        
         <div className="caro-div-container">
           <Carousel />
           <div className="splash-description-container" >
@@ -26,9 +26,7 @@ export class Main extends Component {
             </div>
           </div>
         </div>
-
         <GenreIndex />
-        <footer>Copyright &copy; 2019 Handlebar</footer>
       </div>
     );
   }
