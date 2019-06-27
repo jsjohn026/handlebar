@@ -1,17 +1,25 @@
 import React from "react";
 import Login from "../auth/Login";
 import Register from "../auth/Register";
-import { Mutation } from "react-apollo";
+import { NavLink } from "react-router-dom";
 
-class Modal extends React.Component {
+class LoginModal extends React.Component {
   constructor(props) {
     super(props);
-    this.handleClick = this.handleClick.bind(this);
+    // this.handleClick = this.handleClick.bind(this);
+    this.state = { openModal: false }
     // this.state = { closing: false };
   }
+
+  render() {
+    return (
+        <NavLink to="/login">LOG IN</NavLink>
+    )
+  }
+
 }
 
-export default Modal;
+export default LoginModal;
 
 // login button to open modal, click handler to set openmodal state to true
 // two inner components that would only be rendered if true

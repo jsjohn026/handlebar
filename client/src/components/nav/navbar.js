@@ -1,11 +1,11 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { ApolloConsumer, Query } from "react-apollo";
-import Modal from "../modal/login_modal";
+import LoginModal from "../modal/login_modal";
 import "./navbar.css";
 import { LOGOUT_USER } from "../../graphql/mutations";
 import { IS_LOGGED_IN } from "../../graphql/queries";
-import Logo from "../../assets/handlebar-filled.png";
+import Logo from "../../assets/handlebar-logo.png";
 
 const NavBar = props => {
   return (
@@ -51,9 +51,12 @@ const NavBar = props => {
                   <nav className="header-nav-items">
                   <div className="header-logo" style={{backgroundImage: `url(${Logo})`}}>
                   </div>
-                    <ul>
+                    <ul className="header-nav-right-items">
                       <li><NavLink to="/register">SIGN UP</NavLink></li>
-                      <li><NavLink to="/login">LOG IN</NavLink></li>
+                      {/* <li><NavLink to="/login">LOG IN</NavLink></li> */}
+                      <li>
+                       <LoginModal />
+                      </li>
                     </ul>
                   </nav>
                 </header>
