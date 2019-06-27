@@ -2,6 +2,7 @@ require("../../models");
 const mongoose = require("mongoose");
 const graphql = require("graphql");
 const { GraphQLObjectType, GraphQLList, GraphQLID, GraphQLNonNull } = graphql;
+const AuthService = require("../../service/auth");
 
 const UserType = require("./user_type");
 const GenreType = require("./genre_type");
@@ -25,6 +26,13 @@ const RootQueryType = new GraphQLObjectType({
       args: {_id: { type: new GraphQLNonNull(GraphQLID)} },
       resolve(_, args) {
         return User.findById(args._id)
+      }
+    },
+    currentUser: {
+      type: UserType,
+      args: {},
+      resolve(parentValue, args, context) {
+        return AuthService.currentUser({ token: context.token });
       }
     },
     products: {
