@@ -20,8 +20,7 @@
 .create-product-title-container,
 .create-product-image_url-container,
 .create-product-description-container,
-.create-product-genre-container,
-.create-product-price-container {
+.create-product-bottom-container {
   background: white;
   border: 1px solid #ccc;
   padding: 28px;
@@ -34,12 +33,7 @@
 }
 
 .create-product-genre-container { 
-  border-left: none;
   width: 40%;
-}
-
-.create-product-description-container {
-  width: 60%;
 }
 
 .create-product-form-header {
@@ -88,9 +82,26 @@
   padding: 8px 12px;
   border-radius: 4px;
   border: 1px solid #ccc;
+  font-size: 14px;
+  color: #555;
 }
 
-.create-product-price-container .create-product-input {
+.create-product-genre-container,
+.create-product-price-container,
+.create-product-submit-container {
+  border-right: 1px solid #ccc;
+  padding: 28px;
+  padding-left: 0;
+}
+
+.create-product-bottom-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  padding-left: 28px;
+}
+
+.create-product-bottom-container .create-product-input {
   width: 150px;
 }
 
@@ -100,22 +111,17 @@
   padding: 8px 12px;
 }
 
-.create-product-price-container {
-  display: flex;
-  justify-content: space-between;
-}
-
-.create-product-submit-container { 
-  margin-right: 42px;
-}
-
 .create-product-submit:hover {
   cursor: pointer;
   background: rgb(24,24,24);
 }
 
+.create-product-submit-container { 
+  border-right: 1px solid transparent;
+}
+
 .create-product-submit {
-  width: 100%;
+  width: 200px;
   border: none;
   margin-top: 22px;
   padding: 12px;
@@ -124,5 +130,4 @@
   font-size: 14px;
   background: rgb(49,49,49);
   color: white;
-  margin-right: 36px;
 }

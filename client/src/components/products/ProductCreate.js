@@ -59,7 +59,7 @@ class ProductCreate extends React.Component {
     }
 
     return (
-      <Mutation mutation={CREATE_PRODUCT}>
+      <Mutation mutation={CREATE_PRODUCT} onCompleted={() => this.props.history.push("/")}>
         {createProduct => {
           return (
             <div className="create-product-page">
@@ -78,12 +78,12 @@ class ProductCreate extends React.Component {
                     <input className="create-product-input" value={this.state.image_url} onChange={this.updateInput("image_url")}/>
                     <p className="create-product-light-info">No pressure...</p>
                   </div>
-                  <div className="create-product-description-genre-container">
-                    <div className="create-product-description-container">
-                      <h2 className="create-product-form-header">Description</h2>
-                      <p className="create-product-main-info">Tell us more about your item</p>
-                      <textarea className="create-product-textarea" value={this.state.description} onChange={this.updateInput("description")}/>
-                    </div>
+                  <div className="create-product-description-container">
+                    <h2 className="create-product-form-header">Description</h2>
+                    <p className="create-product-main-info">Tell us more about your item</p>
+                    <textarea className="create-product-textarea" value={this.state.description} onChange={this.updateInput("description")}/>
+                  </div>
+                  <div className="create-product-bottom-container">
                     <div className="create-product-genre-container">
                       <h2 className="create-product-form-header">Pick a genre</h2>
                       <p className="create-product-main-info">How would you classify your item?</p>
@@ -93,9 +93,7 @@ class ProductCreate extends React.Component {
                       </select>
                       <p className="create-product-light-info">If what you had in mind is not there, we are sorry</p>
                     </div>
-                  </div>
-                  <div className="create-product-price-container">
-                    <div>
+                    <div className="create-product-price-container">
                       <h2 className="create-product-form-header">Price</h2>
                       <input className="create-product-input" value={this.state.price} onChange={this.updateInput("price")}></input>
                       <p className="create-product-light-info">So, how much do you want for this thing?</p>
