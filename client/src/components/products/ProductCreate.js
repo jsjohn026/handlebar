@@ -1,6 +1,5 @@
 import React from "react";
 import { withApollo, Mutation } from "react-apollo";
-// import { CURRENT_USER } from "../../graphql/queries";
 import { FETCH_GENRES } from "../../graphql/queries";
 import { CREATE_PRODUCT } from "../../graphql/mutations";
 
@@ -39,11 +38,13 @@ class ProductCreate extends React.Component {
         name: this.state.name,
         description: this.state.description,
         image_url: this.state.image_url,
-        price: this.state.price,
+        price: parseFloat(this.state.price),
         genre: this.state.genre,
       }
     });
   }
+  // Disguise
+  // Betty, darling, who is that handsome looking young fellow over there?
   // https://5f415b.medialib.edu.glogster.com/lWBTHR1VL9FWuG9cNdbW/media/5f/5f98b98ba503659b650aab1f61911475ea8c0b9e/groucho-glasses-by-mike44nh-d4ut2c6.png
 
   render() {
@@ -64,10 +65,11 @@ class ProductCreate extends React.Component {
                 <input value={this.state.description} onChange={this.updateInput("description")}></input>
                 <input value={this.state.image_url} onChange={this.updateInput("image_url")}></input>
                 <input value={this.state.price} onChange={this.updateInput("price")}></input>
-                <select defaultValue="" onChange={this.updateInput("")}>
+                <select defaultValue="" onChange={this.updateInput("genre")}>
                   <option value="">Choose a genre...</option>
                   { genreOptions }
                 </select>
+                <button>Submit</button>
               </form>
             </div>
           );
