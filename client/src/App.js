@@ -15,7 +15,6 @@ const App = () => {
       <NavBar />
       <main className="main-content">
       <Switch>
-        <Route exact path="/genres" component={GenreIndex} />
         <Route exact path="/genres/:genreId" component={ProductIndex} />
         <Route exact path="/products/:productId" component={ProductDetail} />
         <Route exact path="/login" component={Login} />
