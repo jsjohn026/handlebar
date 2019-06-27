@@ -21,9 +21,13 @@ class Login extends React.Component {
   }
 
   updateCache(client, { data }) {
+    // console.log(data)
     client.writeData({
-      data: { isLoggedIn: data.login.loggedIn }
+      data: { 
+        isLoggedIn: data.login.loggedIn
+       }
     });
+    console.log(client)
   }
 
   handleSubmit(event, loginUser) {

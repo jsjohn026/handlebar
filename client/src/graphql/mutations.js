@@ -5,6 +5,7 @@ export const LOGIN_USER = gql`
     login(email: $email, password: $password) {
       token
       loggedIn
+      _id
     }
   }
 `;
@@ -32,6 +33,16 @@ export const REGISTER_USER = gql`
       email,
       token,
       loggedIn
+      _id
     }
   }
 `;
+
+export const DELETE_PRODUCT = gql`
+  mutation DeleteProduct($id: ID!){
+    deleteProduct(id: $id){
+      _id
+      name
+    }
+  }
+`

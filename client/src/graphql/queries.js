@@ -41,6 +41,7 @@ export const FETCH_PRODUCT = gql`
       description
       owner {
         name
+        _id
       }
       price
       image_url
