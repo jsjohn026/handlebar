@@ -1,11 +1,11 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { ApolloConsumer, Query } from "react-apollo";
-import Modal from "../modal/modal";
+import Modal from "../modal/login_modal";
 import "./navbar.css";
 import { LOGOUT_USER } from "../../graphql/mutations";
 import { IS_LOGGED_IN } from "../../graphql/queries";
-// import Logo from "../../assets/handlebar-filled.png";
+import Logo from "../../assets/handlebar-filled.png";
 
 const NavBar = props => {
   return (
@@ -17,8 +17,7 @@ const NavBar = props => {
               return (
                 <header className="header">
                   <nav className="header-nav-items">
-                    <div className="header-logo">
-                      <h1>Handlebar</h1>
+                    <div className="header-logo" style={{ backgroundImage: `url(${Logo})` }}>
                     </div>
                     <ul>
                       <li><NavLink to="">SHOP</NavLink></li>
@@ -49,10 +48,9 @@ const NavBar = props => {
             } else {
               return (
                 <header className="header">
-                  <div className="header-logo">
-                    <h1>Welcome To Handlebar</h1>
-                  </div>
                   <nav className="header-nav-items">
+                  <div className="header-logo" style={{backgroundImage: `url(${Logo})`}}>
+                  </div>
                     <ul>
                       <li><NavLink to="/register">SIGN UP</NavLink></li>
                       <li><NavLink to="/login">LOG IN</NavLink></li>
@@ -69,5 +67,3 @@ const NavBar = props => {
 }
 
 export default NavBar;
-// cb to set state to close modal
-// login button to open modal, showmodal, pass in a cb to set state of boolean to false
