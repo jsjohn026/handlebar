@@ -6,6 +6,15 @@ export const IS_LOGGED_IN = gql`
   }
 `;
 
+export const CURRENT_USER = gql`
+  query CurrentUser {
+    currentUser {
+      _id
+      name
+    }
+  }
+`;
+
 export const FETCH_PRODUCTS = gql`
   query FetchProducts {
     products {

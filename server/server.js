@@ -28,17 +28,14 @@ app.use(cors());
 
 app.use(
   "/graphql",
-  expressGraphQL({
-    schema,
-    graphiql: true
-  })
-);
-
-app.use(
-  "/graphql",
-  expressGraphQL({
-    schema,
-    graphiql: true
+  expressGraphQL(req => {
+    return {
+      schema,
+      context: {
+        token: req.headers.authorization
+      },
+      graphiql: true
+    };
   })
 );
 

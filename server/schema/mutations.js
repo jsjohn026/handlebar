@@ -87,11 +87,11 @@ const mutation = new GraphQLObjectType({
         genre: {type: GraphQLID},
         owner: {type: GraphQLID} 
       },
-      resolve: async(parent, data, context) => {
+      async resolve(parent, data, context) {
         // auth for frontend
-        // const validUser = await AuthService.verifyUser( {token: context.token} )
+        const validUser = await AuthService.verifyUser( {token: context.token} )
         
-        // if(validUser.loggedIn) {
+        if(validUser.loggedIn) {
           const product = new Product(data)
           return Genre.findById(data.genre).then(genre => {
             genre.products.push(product)
@@ -104,11 +104,11 @@ const mutation = new GraphQLObjectType({
                   }
                 )
               })
-            })
-          
-        // } else {
-        //   throw new Error("You must be logged in to create a product")
-        // }
+            }
+          )
+        } else {
+          throw new Error("You must be logged in to create a product")
+        }
       }
     },
     deleteProduct: {
