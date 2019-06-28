@@ -75,3 +75,9 @@ export const FETCH_GENRES = gql`
     }
   }
 `;
+
+export const FETCH_CART_ITEMS = gql`
+  query FetchCartItems {
+    cart @client
+  }
+`;

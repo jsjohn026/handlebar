@@ -1,6 +1,7 @@
 import React from "react";
 import { Query } from "react-apollo";
 import { FETCH_PRODUCT } from "../../graphql/queries";
+import AddToCart from "../cart/AddToCart";
 import "../../styles/product_detail.css";
 
 const ProductDetail = props => {
@@ -20,7 +21,7 @@ const ProductDetail = props => {
               <span className="product-detail-rating">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
               <span className="product-detail-genre">{data.product.genre.name.toUpperCase()}</span>
               <p className="product-detail-description">{data.product.description}</p>
-              <div className="product-detail-buy" onClick={() => console.log("add to cart!!!")}>BUY</div>
+              <AddToCart _id={data.product._id} price={data.product.price} />
             </div>
           </div>
         );
