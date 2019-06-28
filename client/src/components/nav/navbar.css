@@ -25,7 +25,7 @@
 }
 
 .header nav:hover {
-  background: lightgrey;
+  background: white;
 }
 
 .header-logo {
@@ -97,7 +97,7 @@
   cursor: pointer;
 }
 
-.header-nav-items a:hover {
+.header-nav-text:hover {
   cursor: pointer;
   border-bottom: 3px solid #fdcf41;
   width: 85%;
