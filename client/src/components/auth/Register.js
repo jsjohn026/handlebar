@@ -35,7 +35,6 @@ class Register extends React.Component {
     this.setState({ message: error.graphQLErrors[0].message });
   }
   updateCache(client, {data}) {
-    console.log(data);
     client.writeData({
       data: { isLoggedIn: data.register.loggedIn }
     });

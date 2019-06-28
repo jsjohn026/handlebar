@@ -98,7 +98,6 @@ const currentUser = async data => {
     const { token } = data;
     const decoded = jwt.verify(token, keys.secretOrKey);
     const { id } = decoded;
-
     const user = await User.findById(id);
     return { ...user._doc, password: null };
   } catch (err) {

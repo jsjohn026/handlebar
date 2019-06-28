@@ -1,11 +1,18 @@
+.splash-main-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .caro-div-container{
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    
 }
 
 .splash-description-container{
-    height: 600px;
+    height: 550px;
     margin-left: 10px;
     background-image: url('../components/main/mustache.png');
     background-size: contain;
@@ -26,7 +33,7 @@
     border: 1px solid black;
     height: 100%;
     margin-left: 10px;
-    width: 600px;
+    width: 575px;
     border-radius: 10px;
 }
 

@@ -28,9 +28,6 @@ class ProductDetail extends React.Component{
           if (loading) return "Loading...";
           if (error) return `Error! ${error.message}`;
           var val = data.product.owner._id === this.state.currentUserId;
-          console.log(val)
-          // console.log(data.product.owner._id)
-          // console.log(this.state.currentUserId)
           let showButton = val ? (
             <div>
                   <ProductDeleteButton productId={data.product._id}/>

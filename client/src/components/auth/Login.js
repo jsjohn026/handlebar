@@ -4,6 +4,7 @@ import { Mutation, withApollo  } from "react-apollo";
 import { LOGIN_USER, VERIFY_USER } from "../../graphql/mutations";
 import { CURRENT_USER } from '../../graphql/queries'
 import "../../styles/auth.css";
+import { createHttpLink } from "apollo-link-http";
 
 class Login extends React.Component {
   constructor(props) {
@@ -22,30 +23,25 @@ class Login extends React.Component {
   }
 
   updateCache(client, { data }) {
-    // console.log(data)
+    client.reset();
     client.writeData({
       data: { 
         isLoggedIn: data.login.loggedIn
        }
     });
-    console.log(client)
-    // const token = localStorage.getItem("auth-token");
-    // if (token) {
-    //   client
-    //     .mutate({ mutation: VERIFY_USER, variables: { token } })
-    //     .then(({ data }) => {
-    //       client.cache.writeData({
-    //         data: { isLoggedIn: data.verifyUser.loggedIn }
-    //       });
-    //     });
-    // }
+    const httpLink = createHttpLink({
+      uri: "http://localhost:5000/graphql",
+      headers:  {
+        authorization: localStorage.getItem("auth-token")
+      }
+    });
   }
 
   handleSubmit(event, loginUser) {
     event.preventDefault();
     loginUser({
       variables: { email: this.state.email, password: this.state.password }
-    });
+    })
   }
 
   handleError(error) {

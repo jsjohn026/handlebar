@@ -48,6 +48,14 @@ export const FETCH_PRODUCT = gql`
     }
   }
 `;
+// options:{
+//   context: {
+//     headers: {
+//       authorization: localStorage.getItem("auth-token")
+//     }
+//   }
+// }
+
 
 export const FETCH_GENRE = gql`
   query FetchGenre($id: ID!) {

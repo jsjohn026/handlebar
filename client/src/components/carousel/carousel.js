@@ -8,7 +8,7 @@ class DemoCarousel extends Component {
     render() {
         return (
             <div className="carousel-container">
-            <Carousel autoPlay dynamicHeight={true} showArrows={false} showThumbs={false} width={"600px"} showStatus={false} infiniteLoop={true} interval={5000} >
+            <Carousel autoPlay dynamicHeight={true} showArrows={false} showThumbs={false} width={"575px"} showStatus={false} infiniteLoop={true} interval={5000} >
                 
                 <div>
                     <img src="https://www.chatelaine.com/wp-content/uploads/2017/05/Bibimbap-homemade-burgers.jpg" alt="not found"/>
