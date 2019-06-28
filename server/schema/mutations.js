@@ -58,6 +58,7 @@ const mutation = new GraphQLObjectType({
         return AuthService.verifyUser(args)
       }
     },
+    
     newGenre: {
       type: GenreType,
       args: {
@@ -124,6 +125,7 @@ const mutation = new GraphQLObjectType({
               genre.save()
             })
         )
+
         return product.deleteOne()
       }
     },

@@ -4,6 +4,8 @@ import { Query } from "react-apollo";
 import { FETCH_GENRES } from "../../graphql/queries";
 import "../../styles/genre_index.css"
 
+
+
 const GenreIndex = () => {
   return (
     <Query query={FETCH_GENRES} >
@@ -12,7 +14,11 @@ const GenreIndex = () => {
             if (error) return `Error! ${error.message}`;
             return(
                 <div className="genre-index-container">
-                    <h2>Some genres</h2>
+                    <div className="genre-header-container">
+                        <h1 className="genre-main-header">Find some Goods </h1>
+                        <p className="genre-main-description">Click on a genre that defines you</p>
+
+                    </div>
                     <ul className="genre-index-list">
                         {data.genres.map(genre => {
                             return (

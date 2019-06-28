@@ -34,6 +34,11 @@ class Register extends React.Component {
   handleError(error) {
     this.setState({ message: error.graphQLErrors[0].message });
   }
+  updateCache(client, {data}) {
+    client.writeData({
+      data: { isLoggedIn: data.register.loggedIn }
+    });
+  }
   
   render() {
     const { name, email, password, message } = this.state;
@@ -45,6 +50,7 @@ class Register extends React.Component {
           localStorage.setItem("auth-token", token);
           this.props.history.push("/");
         }}
+        update={(client, data) => this.updateCache(client, data)}
         onError={this.handleError}>
         {registerUser => (
           <div className="auth-page-container">

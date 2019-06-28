@@ -1,0 +1,44 @@
+.splash-main-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.caro-div-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    
+}
+
+.splash-description-container{
+    height: 550px;
+    margin-left: 10px;
+    background-image: url('../components/main/mustache.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    position: relative;
+    opacity: .8;
+}
+
+.splash-description-header{
+    font-size: 30px;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.splash-description {
+    border: 1px solid black;
+    height: 100%;
+    margin-left: 10px;
+    width: 575px;
+    border-radius: 10px;
+}
+
+.splash-description-text{
+    padding: 5px;
+    position: absolute;
+    bottom: 5%;
+}

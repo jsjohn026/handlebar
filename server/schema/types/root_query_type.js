@@ -32,6 +32,7 @@ const RootQueryType = new GraphQLObjectType({
       type: UserType,
       args: {},
       resolve(parentValue, args, context) {
+        
         return AuthService.currentUser({ token: context.token });
       }
     },
