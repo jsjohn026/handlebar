@@ -43,11 +43,11 @@ class Login extends React.Component {
       <Mutation
         mutation={LOGIN_USER}
         update={(client, data) => this.updateCache(client, data)}
-          onCompleted={data => {
-            const { token } = data.login;
-            localStorage.setItem('auth-token', token);
-            this.props.history.push('/');
-          }}
+        onCompleted={data => {
+          const { token } = data.login;
+          localStorage.setItem('auth-token', token);
+          this.props.history.push('/');
+        }}
         onError={this.handleError}>
         {loginUser => (
           <div className="auth-page-container">
