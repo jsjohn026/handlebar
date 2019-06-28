@@ -46,7 +46,7 @@ class Login extends React.Component {
 
   render() {
     const { email, password, message } = this.state;
-    return (
+    return return (
       <ApolloConsumer>
       {(client) => (
         <Mutation

@@ -91,16 +91,16 @@ const mutation = new GraphQLObjectType({
       async resolve(parent, data, context) {
         // auth for frontend
         const validUser = await AuthService.verifyUser( {token: context.token} )
-        
+
         if(validUser.loggedIn) {
+          data.owner = validUser.id;
           const product = new Product(data)
           return Genre.findById(data.genre).then(genre => {
             genre.products.push(product)
-              return User.findById(data.owner).then(user => {
-                user.products.push(product)
-                return Promise.all([product.save(), genre.save(), user.save()] ).then(
+            return User.findById(data.owner).then(user => {
+              user.products.push(product)
+              return Promise.all([product.save(), genre.save(), user.save()] ).then(
                   ([product,category, user]) => {
-                    console.log(product)
                     return product
                   }
                 )
