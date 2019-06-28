@@ -1,25 +1,32 @@
 const mongoose = require('mongoose')
 const graphql = require('graphql')
-const {GraphQLObjectType, GraphQLString, GraphQLID, GraphQLList} = graphql
-const Review = mongoose.model("genres")
-const ProductType = require('./product_type')
-const UserType = require('./review_type')
+const {GraphQLObjectType, GraphQLString, GraphQLID, GraphQLList, GraphQLInt} = graphql
+const Review = mongoose.model("reviews")
+
+const User = mongoose.model("users")
+const Product = mongoose.model("products")
 
 const GenreType = new GraphQLObjectType({
-    name: "GenreType",
+    name: "ReviewType",
     fields: () => ({
         _id: {type: GraphQLID},
         title: { type: GraphQLString },
         content: {type: GraphQLString},
-        products: {
-            type: new GraphQLList(ProductType),
-             resolve(parentValue, {_id}) {
-                return Genre.findById(parentValue._id).populate('products')
-                .then(genre => {
-                    return genre.products
-                })
+        product: {
+            type: require('./product_type'),
+            resolve(parentValue){
+                return Product.findById(parentValue.product)
             }
-        }
+        },
+        reviewer: {
+            type: require('./user_type'),
+            resolve(parentValue){
+                return User.findById(parentValue.reviewer)
+                .then(user => user)
+                .catch(err => null)
+            }
+        },
+        rating: { type: GraphQLInt }
     })
 })
 

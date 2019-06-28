@@ -34,7 +34,11 @@ const ProductSchema = new Schema({
   },
   image_url:{
     type: String
-  }
+  },
+  reviews: [{
+    type: Schema.Types.ObjectId,
+    ref: "reviews"
+  }]
 });
 
 ProductSchema.statics.updateProductGenre = (productId, genreId) => {

@@ -12,7 +12,7 @@ const ReviewSchema = new Schema({
     type: String,
     required: true
   },
-  owner: {
+  reviewer: {
     type: Schema.Types.ObjectId,
     required: true,
     ref: "users"
@@ -28,7 +28,9 @@ const ReviewSchema = new Schema({
   },
   rating: {
       type: Number,
-      require: true
+      require: true,
+      min: 1,
+      max: 5
   }
 });
 
