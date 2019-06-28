@@ -1,4 +1,4 @@
-.modal-container {
+.modal-background {
   position: fixed;
   top: 0;
   left: 0;
@@ -15,6 +15,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 500px;
+  height: 500px;
+  background: white;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
