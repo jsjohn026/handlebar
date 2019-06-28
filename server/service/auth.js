@@ -87,9 +87,9 @@ const verifyUser = async data => {
       return user ? true : false
     })
 
-    return { loggedIn }
+    return { id, loggedIn }
   } catch (err) {
-    return { loggedIn: false }
+    return { id: null, loggedIn: false }
   }
 }
 

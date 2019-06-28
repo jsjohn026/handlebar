@@ -45,4 +45,23 @@ export const DELETE_PRODUCT = gql`
       name
     }
   }
-`
+`;
+
+export const CREATE_PRODUCT = gql`
+  mutation CreateProduct($name: String!, $description: String!, $image_url: String!, $price: Float!, $genre: ID!) {
+    newProduct(name: $name, description: $description, image_url: $image_url, price: $price, genre: $genre) {
+      name
+      description
+      image_url
+      price
+      genre {
+        _id
+        name
+      }
+      owner {
+        _id
+        name
+      }
+    }
+  }
+`;
