@@ -1,22 +1,47 @@
 import React from "react";
 import Login from "../auth/Login";
-import Register from "../auth/Register";
 import { NavLink } from "react-router-dom";
+import "./modal.css";
 
 class LoginModal extends React.Component {
   constructor(props) {
     super(props);
-    // this.handleClick = this.handleClick.bind(this);
+    this.handleClick = this.handleClick.bind(this);
     this.state = { openModal: false }
-    // this.state = { closing: false };
+  }
+
+  handleClick(e) {
+    e.preventDefault();
+    const { openModal } = this.state;
+    this.setState({ openModal: !openModal });
   }
 
   render() {
     return (
-        <NavLink to="/login">LOG IN</NavLink>
+        <>
+          <NavLink 
+          to="/login"
+          onClick={this.handleClick}
+          >
+            LOG IN
+          </NavLink>
+          {this.state.openModal ? (
+            <>
+              <div
+                onClick={this.handleClick}
+                className="modal-background"
+              >
+              </div>
+              
+              <div className="modal-content">
+                <Login />
+              </div>
+            </>
+          ) : null
+          }
+        </>
     )
   }
-
 }
 
 export default LoginModal;

@@ -11,6 +11,11 @@
   box-sizing: border-box;
 }
 
+.header {
+  position: relative;
+  z-index: 1000;
+}
+
 .header-nav-right-items {
   justify-content: right;
 }
@@ -46,4 +51,7 @@
 .header-nav-items a {
   text-decoration: none;
   color: black;
+  font-size: 16px;
+  font-weight: 500;
+  font-stretch:ultra-condensed;
 }
