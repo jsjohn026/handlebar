@@ -17,15 +17,22 @@ const NavBar = props => {
               return (
                 <header className="header">
                   <nav className="header-nav-items">
+                    <ul className="header-nav-left-items">
                     <div className="header-logo" style={{ backgroundImage: `url(${Logo})` }}>
                     </div>
-                    <ul>
-                      <li><NavLink to="">SHOP</NavLink></li>
-                      <li><NavLink to="">STUDIO</NavLink></li>
-                      <li><NavLink to="">INTERESTS</NavLink></li>
-                      <li><div className="searchbar">searchbar here</div></li>
-                      <li><div className="notifications">notifications icon</div></li>
-                      <li><div className="dropdown-menu">dropdown menu</div>
+                      <li className="header-nav-text"><NavLink to="">SHOP</NavLink></li>
+                      <li className="header-nav-text"><NavLink to="">STUDIO</NavLink></li>
+                      <li className="header-nav-text"><NavLink to="">INTERESTS</NavLink></li>
+                    </ul>
+                    <ul className="header-nav-right-items">
+                      <li className="navbar-search">
+                        <input type="text" placeholder="search input"
+                        />
+                        <i class="fas fa-search fa-lg"></i></li>
+                      <li className="notifications"><i class="fas fa-bell fa-lg"></i></li>
+                      <li><div className="user-dropdown-menu">
+                        <div className="navbar-user-avatar">user</div>
+                        </div>
                       <button
                         onClick={e => {
                           e.preventDefault();
@@ -52,9 +59,9 @@ const NavBar = props => {
                   <div className="header-logo" style={{backgroundImage: `url(${Logo})`}}>
                   </div>
                     <ul className="header-nav-right-items">
-                      <li><NavLink to="/register">SIGN UP</NavLink></li>
+                      <li className="header-nav-text"><NavLink to="/register">SIGN UP</NavLink></li>
                       {/* <li><NavLink to="/login">LOG IN</NavLink></li> */}
-                      <li>
+                      <li className="header-nav-text">
                        <LoginModal />
                       </li>
                     </ul>
