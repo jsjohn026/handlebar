@@ -9,16 +9,18 @@ import Main from "./components/main/main_page";
 import GenreIndex from "./components/genres/GenreIndex";
 import NavBar from "./components/nav/navbar";
 
+import AuthRoute from './util/route_util'
+
 const App = () => {
   return (
     <div>
       <NavBar />
       <main className="main-content">
       <Switch>
-        <Route exact path="/genres/:genreId" component={ProductIndex} />
-        <Route exact path="/products/:productId" component={ProductDetail} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/register" component={Register} />
+        <AuthRoute exact path="/genres/:genreId" component={ProductIndex} />
+        <AuthRoute exact path="/products/:productId" component={ProductDetail} />
+        <AuthRoute exact path="/login" component={Login} routeType="auth" />
+        <AuthRoute exact path="/register" component={Register} routeType="auth"/>
         <Route exact path="/" component={Main} />
       </Switch>
       </main>

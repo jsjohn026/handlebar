@@ -1,10 +1,11 @@
 import React from "react";
 import { withRouter, Link } from "react-router-dom";
-import { Mutation, withApollo  } from "react-apollo";
+import { Mutation, withApollo, ApolloConsumer  } from "react-apollo";
 import { LOGIN_USER, VERIFY_USER } from "../../graphql/mutations";
 import { CURRENT_USER } from '../../graphql/queries'
 import "../../styles/auth.css";
 import { createHttpLink } from "apollo-link-http";
+
 
 class Login extends React.Component {
   constructor(props) {
@@ -22,19 +23,14 @@ class Login extends React.Component {
     };
   }
 
-  updateCache(client, { data }) {
-    client.reset();
-    client.writeData({
+ async updateCache(cache, { data }, client) {
+    cache.writeData({
       data: { 
         isLoggedIn: data.login.loggedIn
-       }
-    });
-    const httpLink = createHttpLink({
-      uri: "http://localhost:5000/graphql",
-      headers:  {
-        authorization: localStorage.getItem("auth-token")
       }
     });
+    
+  //  await client.resetStore();
   }
 
   handleSubmit(event, loginUser) {
@@ -51,30 +47,36 @@ class Login extends React.Component {
   render() {
     const { email, password, message } = this.state;
     return (
-      <Mutation
-        mutation={LOGIN_USER}
-        update={(client, data) => this.updateCache(client, data)}
-          onCompleted={data => {
-            const { token } = data.login;
-            localStorage.setItem('auth-token', token);
-            this.props.history.push('/');
-          }}
-        onError={this.handleError}>
-        {loginUser => (
-          <div className="auth-page-container">
-            <div className="auth-form-container">
-              <h1>Log into Handlebar</h1>
-              <span>Or <Link to="/register">Create Account</Link></span>
-              <div className="auth-form-error-message">{message}</div>
-              <form className="auth-form" onSubmit={event => this.handleSubmit(event, loginUser)}>
-                <input className="auth-form-input" value={this.state.email} onChange={this.updateInput("email")} placeholder="Email Address" />
-                <input className="auth-form-input" value={this.state.password} onChange={this.updateInput("password")} type="password" placeholder="Password" />
-                <button className="auth-form-button" type="submit" disabled={!(email && password)}>Log In</button>
-              </form>
+      <ApolloConsumer>
+      {(client) => (
+        <Mutation
+          mutation={LOGIN_USER}
+          update={(cache, data) => this.updateCache(cache, data, client)}
+            onCompleted={data => {
+              const { token } = data.login;
+              localStorage.setItem('auth-token', token);
+              this.props.history.push('/');
+              
+            }}
+          onError={this.handleError}>
+          {loginUser => (
+            <div className="auth-page-container">
+              <div className="auth-form-container">
+                <h1>Log into Handlebar</h1>
+                <span>Or <Link to="/register">Create Account</Link></span>
+                <div className="auth-form-error-message">{message}</div>
+                <form className="auth-form" onSubmit={event => this.handleSubmit(event, loginUser)}>
+                  <input className="auth-form-input" value={this.state.email} onChange={this.updateInput("email")} placeholder="Email Address" />
+                  <input className="auth-form-input" value={this.state.password} onChange={this.updateInput("password")} type="password" placeholder="Password" />
+                  <button className="auth-form-button" type="submit" disabled={!(email && password)}>Log In</button>
+                </form>
+              </div>
             </div>
-          </div>
+          )}
+        </Mutation>
+        
         )}
-      </Mutation>
+      </ApolloConsumer>
     );
   }
 }
