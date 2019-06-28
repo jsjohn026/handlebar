@@ -23,8 +23,11 @@ const NavBar = props => {
                       <li><NavLink to="">SHOP</NavLink></li>
                       <li><NavLink to="">STUDIO</NavLink></li>
                       <li><NavLink to="">INTERESTS</NavLink></li>
-                      <li><div className="searchbar">searchbar here</div></li>
-                      <li><div className="notifications">notifications icon</div></li>
+                      <li className="navbar-search">
+                        <input type="text" placeholder="search input"
+                        />
+                        <i class="fas fa-search fa-lg"></i></li>
+                      <li className="notifications"><i class="fas fa-bell fa-lg"></i></li>
                       <li><div className="dropdown-menu">dropdown menu</div>
                       <button
                         onClick={e => {
