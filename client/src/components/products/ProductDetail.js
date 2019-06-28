@@ -16,6 +16,7 @@ class ProductDetail extends React.Component{
   componentWillMount(){
      this.props.client.query( { query: CURRENT_USER } )
      .then(({data}) => {
+       
        this.setState({currentUserId: data.currentUser._id, currentUserName: data.currentUser.name})
      })
   }
@@ -47,7 +48,7 @@ class ProductDetail extends React.Component{
                 <span className="product-detail-genre">{data.product.genre.name.toUpperCase()}</span>
                 <p className="product-detail-description">{data.product.description}</p>
                 <div className="product-detail-buy" onClick={() => console.log("add to cart!!!")}>BUY</div>
-                <div>
+                <div className="deleteButtonContainer">
                   {showButton}
                 </div>
               </div>

@@ -1,7 +1,8 @@
 import React from "react";
 import { withRouter, Link } from "react-router-dom";
-import { Mutation } from "react-apollo";
-import { LOGIN_USER } from "../../graphql/mutations";
+import { Mutation, withApollo  } from "react-apollo";
+import { LOGIN_USER, VERIFY_USER } from "../../graphql/mutations";
+import { CURRENT_USER } from '../../graphql/queries'
 import "../../styles/auth.css";
 
 class Login extends React.Component {
@@ -28,6 +29,16 @@ class Login extends React.Component {
        }
     });
     console.log(client)
+    // const token = localStorage.getItem("auth-token");
+    // if (token) {
+    //   client
+    //     .mutate({ mutation: VERIFY_USER, variables: { token } })
+    //     .then(({ data }) => {
+    //       client.cache.writeData({
+    //         data: { isLoggedIn: data.verifyUser.loggedIn }
+    //       });
+    //     });
+    // }
   }
 
   handleSubmit(event, loginUser) {
@@ -72,4 +83,4 @@ class Login extends React.Component {
   }
 }
 
-export default withRouter(Login);
+export default withApollo(withRouter(Login));

@@ -4,6 +4,8 @@ import { Query } from "react-apollo";
 import { FETCH_GENRES } from "../../graphql/queries";
 import "../../styles/genre_index.css"
 
+
+
 const GenreIndex = () => {
   return (
     <Query query={FETCH_GENRES} >

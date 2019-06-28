@@ -53,6 +53,7 @@ export const FETCH_GENRE = gql`
   query FetchGenre($id: ID!) {
     genre(_id: $id) {
       _id
+      name
       products {
         _id
         name

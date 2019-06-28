@@ -88,3 +88,7 @@
   background-position: -45px 0px;
   transition: background-position .25s ease, color .25s ease;
 } 
+
+.deleteButtonContainer{
+  margin-top: 10px;
+}
