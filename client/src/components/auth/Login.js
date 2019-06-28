@@ -24,13 +24,14 @@ class Login extends React.Component {
   }
 
  async updateCache(cache, { data }, client) {
+    
     cache.writeData({
       data: { 
         isLoggedIn: data.login.loggedIn
       }
     });
     
-  //  await client.resetStore();
+    window.location.reload();
   }
 
   handleSubmit(event, loginUser) {
@@ -55,8 +56,8 @@ class Login extends React.Component {
             onCompleted={data => {
               const { token } = data.login;
               localStorage.setItem('auth-token', token);
+              console.log(client)
               this.props.history.push('/');
-              
             }}
           onError={this.handleError}>
           {loginUser => (

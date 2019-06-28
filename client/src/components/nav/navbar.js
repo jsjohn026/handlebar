@@ -28,7 +28,7 @@ const NavBar = props => {
                       <li className="navbar-search">
                         <input type="text" placeholder="search input"
                         />
-                        <i class="fas fa-search fa-lg"></i></li>
+                        <i className="fas fa-search fa-lg"></i></li>
                       <li className="notifications"><i class="fas fa-bell fa-lg"></i></li>
                       <li><div className="user-dropdown-menu">
                         <div className="navbar-user-avatar">user</div>
