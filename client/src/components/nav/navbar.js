@@ -17,12 +17,16 @@ const NavBar = props => {
               return (
                 <header className="header">
                   <nav className="header-nav-items">
+                      <NavLink to="/">
+                      <div 
+                      className="header-logo" 
+                      style={{ backgroundImage: `url(${Logo})` }}>
+                      </div>
+                      </NavLink>
                     <ul className="header-nav-left-items">
-                    <div className="header-logo" style={{ backgroundImage: `url(${Logo})` }}>
-                    </div>
-                      <li className="header-nav-text"><NavLink to="">SHOP</NavLink></li>
+                      <li className="header-nav-text"><NavLink to="/products">SHOP</NavLink></li>
                       <li className="header-nav-text"><NavLink to="">STUDIO</NavLink></li>
-                      <li className="header-nav-text"><NavLink to="">INTERESTS</NavLink></li>
+                      <li className="header-nav-text"><NavLink to="/genres">INTERESTS</NavLink></li>
                     </ul>
                     <ul className="header-nav-right-items">
                       <li className="navbar-search">
