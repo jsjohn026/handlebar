@@ -41,17 +41,27 @@ export const FETCH_PRODUCT = gql`
       description
       owner {
         name
+        _id
       }
       price
       image_url
     }
   }
 `;
+// options:{
+//   context: {
+//     headers: {
+//       authorization: localStorage.getItem("auth-token")
+//     }
+//   }
+// }
+
 
 export const FETCH_GENRE = gql`
   query FetchGenre($id: ID!) {
     genre(_id: $id) {
       _id
+      name
       products {
         _id
         name

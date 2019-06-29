@@ -26,6 +26,9 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 
+.main-content {
+	margin-top: 90px;
+}
 body {
 	line-height: 1;
 }

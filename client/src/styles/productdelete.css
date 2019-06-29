@@ -1,0 +1,70 @@
+.delete-modal-container{
+    position: relative;
+}
+
+.delete-modal-container .modal{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.4);
+}
+
+    .delete-modal-prompt{
+        text-align: center;
+        width: 350px;
+        height: 250px;
+        position: absolute;
+        background-color: #f1f1f1;
+        left: -50%;
+        z-index: 2;
+        bottom: -50%;
+        border-radius: 10px;
+        border: 1px solid rgb(187,187,187);
+    }
+
+    .delete-modal-prompt span{
+        color: red;
+        font-size: x-large;
+        margin-top: 15px;
+        display: block;
+    }
+
+    .delete-modal-button-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 100px;
+    }
+    .delete-modal-button-container button{
+        background-color: red;
+        margin: 12px 6px;
+        padding: 7px;
+        color: white;
+        font-weight: bold;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: large;
+        width: 100px;
+        border: 2px solid black;
+        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    }
+    .delete-modal-button-container button:nth-child(2){
+        background-color: green;
+    }
+
+    .delete-product-btn{
+        background-color: red;
+        display: inline-block;
+        height: 100%;
+        width: 180px;
+        transition: all .3s;
+        box-sizing: border-box;
+        padding: 1em 1em;
+        color: white;
+        border: 1px solid red;
+        font-weight: 700;
+        text-transform: uppercase;
+        border-radius: 4px;
+        cursor: pointer;
+    }
