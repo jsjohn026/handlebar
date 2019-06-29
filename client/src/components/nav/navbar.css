@@ -1,16 +1,9 @@
 .header nav {
   position: fixed;
-<<<<<<< HEAD
   left: -24px;
   top: 0px;
   width: 100%;
   height: 5.5rem;
-=======
-  left: 0px;
-  top: 10px;
-  width: 100%;
-  height: 3.5rem;
->>>>>>> 9bac8c10435934f70f6f63feb0bfbf47b3373a4e
   padding: 0 1rem;
   display: flex;
   align-items: center;

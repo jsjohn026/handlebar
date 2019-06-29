@@ -1,8 +1,5 @@
 import React from "react";
-<<<<<<< HEAD
 import AddToCart from "../cart/AddToCart";
-=======
->>>>>>> 9bac8c10435934f70f6f63feb0bfbf47b3373a4e
 import { Query, withApollo } from "react-apollo";
 import { FETCH_PRODUCT, CURRENT_USER } from "../../graphql/queries";
 import "../../styles/product_detail.css";
@@ -34,13 +31,8 @@ class ProductDetail extends React.Component{
           var val = data.product.owner._id === this.state.currentUserId;
           let showButton = val ? (
             <div>
-<<<<<<< HEAD
               <ProductDeleteButton productId={data.product._id}/>
             </div>
-=======
-                  <ProductDeleteButton productId={data.product._id}/>
-                </div>
->>>>>>> 9bac8c10435934f70f6f63feb0bfbf47b3373a4e
           ) : null;
           return (
             <div className="product-detail-page">
@@ -53,11 +45,7 @@ class ProductDetail extends React.Component{
                 <span className="product-detail-rating">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
                 <span className="product-detail-genre">{data.product.genre.name.toUpperCase()}</span>
                 <p className="product-detail-description">{data.product.description}</p>
-<<<<<<< HEAD
                 <AddToCart _id={data.product._id} price={data.product.price} />
-=======
-                <div className="product-detail-buy" onClick={() => console.log("add to cart!!!")}>BUY</div>
->>>>>>> 9bac8c10435934f70f6f63feb0bfbf47b3373a4e
                 <div className="deleteButtonContainer">
                   {showButton}
                 </div>
