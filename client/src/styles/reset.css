@@ -27,9 +27,8 @@ footer, header, hgroup, menu, nav, section {
 }
 
 .main-content {
-	margin: 4rem 2.5rem;
+	margin-top: 90px;
 }
-
 body {
 	line-height: 1;
 }

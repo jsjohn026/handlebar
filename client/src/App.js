@@ -18,7 +18,8 @@ const App = () => {
       <NavBar />
       <main className="main-content">
       <Switch>
-
+        <AuthRoute exact path="/products/new" component={ProductCreate} />
+        <AuthRoute exact path="/genres" component={GenreIndex} />
         <AuthRoute exact path="/genres/:genreId" component={ProductIndex} />
         <AuthRoute exact path="/genres/" component={GenreIndex} />
         <AuthRoute exact path="/products/:productId" component={ProductDetail} />

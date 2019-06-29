@@ -33,7 +33,7 @@ const NavBar = props => {
                         <input type="text" placeholder="search input"
                         />
                         <i className="fas fa-search fa-lg"></i></li>
-                      <li className="notifications"><i class="fas fa-bell fa-lg"></i></li>
+                      <li className="notifications"><i className="fas fa-bell fa-lg"></i></li>
                       <li><div className="user-dropdown-menu">
                         <div className="navbar-user-avatar">user</div>
                         </div>

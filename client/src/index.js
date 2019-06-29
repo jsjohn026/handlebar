@@ -5,6 +5,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import ApolloClient from "apollo-client";
 import { InMemoryCache } from "apollo-cache-inmemory";
+import { persistCache } from "apollo-cache-persist";
 import { createHttpLink } from "apollo-link-http";
 import { ApolloProvider } from "react-apollo";
 import { onError } from "apollo-link-error";
@@ -13,6 +14,11 @@ import { VERIFY_USER } from "./graphql/mutations";
 
 const cache = new InMemoryCache({
   dataIdFromObject: object => object._id || null
+});
+
+persistCache({
+  cache,
+  storage: window.localStorage
 });
 
 const httpLink = createHttpLink({
@@ -43,14 +49,30 @@ cache.writeData({
   }
 });
 
+if (!cache.data.data.ROOT_QUERY.cart) {
+  cache.writeData({
+    data: {
+      cart: []
+    }
+  });
+}
+
 if (token) {
   client
     .mutate({ mutation: VERIFY_USER, variables: { token } })
     .then(({ data }) => {
       cache.writeData({
-        data: { isLoggedIn: data.verifyUser.loggedIn }
+        data: {
+          isLoggedIn: data.verifyUser.loggedIn,
+        }
       });
     });
+} else {
+  cache.writeData({
+    data: {
+      isLoggedIn: false,
+    }
+  });
 }
 
 const Root = () => {
