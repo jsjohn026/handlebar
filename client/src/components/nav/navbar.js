@@ -33,7 +33,11 @@ const NavBar = props => {
                         <input type="text" placeholder="search input"
                         />
                         <i className="fas fa-search fa-lg"></i></li>
+<<<<<<< HEAD
                       <li className="notifications"><i className="fas fa-bell fa-lg"></i></li>
+=======
+                      <li className="notifications"><i class="fas fa-bell fa-lg"></i></li>
+>>>>>>> 9bac8c10435934f70f6f63feb0bfbf47b3373a4e
                       <li><div className="user-dropdown-menu">
                         <div className="navbar-user-avatar">user</div>
                         </div>
