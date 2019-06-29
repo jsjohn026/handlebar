@@ -7,6 +7,13 @@ class UserDropdown extends Component {
     this.state = { 
       showDropdown: false
     }
+
+    this.showDropdown = this.showDropdown.bind(this);
+  }
+
+  showDropdown(event) {
+    event.preventDefault();
+    this.setState({showDropdown: true});
   }
 
   render() {
