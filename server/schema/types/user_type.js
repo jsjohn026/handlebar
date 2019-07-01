@@ -28,6 +28,16 @@ const UserType = new GraphQLObjectType({
         })
       }
     },
+    reviews: {
+      type: new GraphQLList(require('./review_type')),
+      args: {_id: {type: GraphQLID} },
+      resolve(parentValue, _id) {
+        return User.findById(parentValue._id).populate('reviews')
+        .then(user => {
+          return user.reviews
+        })
+      }
+    }
     
   })// end of fields
 });
