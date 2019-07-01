@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { ApolloConsumer, Query } from "react-apollo";
 import LoginModal from "../modal/login_modal";
+import SignUpModal from "../modal/signup_modal";
 import "./navbar.css";
 import { IS_LOGGED_IN } from "../../graphql/queries";
 import Logo from "../../assets/handlebar-logo.png";
@@ -46,8 +47,11 @@ const NavBar = props => {
                   <div className="header-logo" style={{backgroundImage: `url(${Logo})`}}>
                   </div>
                     <ul className="header-nav-right-items">
-                      <li className="header-nav-text"><NavLink to="/register">SIGN UP</NavLink></li>
+                      {/* <li className="header-nav-text"><NavLink to="/register">SIGN UP</NavLink></li> */}
                       {/* <li><NavLink to="/login">LOG IN</NavLink></li> */}
+                      <li className="header-nav-text">
+                       <SignUpModal />
+                      </li>
                       <li className="header-nav-text">
                        <LoginModal />
                       </li>

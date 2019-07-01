@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { LOGOUT_USER } from "../../graphql/mutations";
+import { Mutation, withApollo, ApolloConsumer } from "react-apollo";
+import { CURRENT_USER } from '../../graphql/queries';
+import { createHttpLink } from "apollo-link-http";
 import "./user_dropdown.css";
 
 class UserDropdown extends Component {
