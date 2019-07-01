@@ -3,9 +3,9 @@ import { NavLink } from "react-router-dom";
 import { ApolloConsumer, Query } from "react-apollo";
 import LoginModal from "../modal/login_modal";
 import "./navbar.css";
-import { LOGOUT_USER } from "../../graphql/mutations";
 import { IS_LOGGED_IN } from "../../graphql/queries";
 import Logo from "../../assets/handlebar-logo.png";
+import UserDropdown from "../nav/user_dropdown";
 
 const NavBar = props => {
   return (
@@ -30,28 +30,11 @@ const NavBar = props => {
                     </ul>
                     <ul className="header-nav-right-items">
                       <li className="navbar-search">
-                        <input type="text" placeholder="search input"
-                        />
+                        {/* <input type="text" placeholder="search input"
+                        /> */}
                         <i className="fas fa-search fa-lg"></i></li>
                       <li className="notifications"><i className="fas fa-bell fa-lg"></i></li>
-                      <li><div className="user-dropdown-menu">
-                        <div className="navbar-user-avatar">user</div>
-                        </div>
-                      <button
-                        onClick={e => {
-                          e.preventDefault();
-                          localStorage.removeItem("auth-token");
-                          client.writeData({
-                            data: {
-                              isLoggedIn: false, 
-                              cart: []
-                            }
-                          });
-                        }}
-                      >
-                        LOGOUT
-                      </button>
-                      </li>
+                      <li><UserDropdown /></li>
                     </ul>
                   </nav>
                 </header>
