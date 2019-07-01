@@ -5,16 +5,18 @@ const {
   GraphQLObjectType, 
   GraphQLString, 
   GraphQLFloat, 
-  GraphQLID } = graphql;
+  GraphQLID, GraphQLInt } = graphql;
 
 const UserType = require("./types/user_type");
 const GenreType = require("./types/genre_type");
 const ProductType = require("./types/product_type");
-const AuthService = require("../service/auth")
+const AuthService = require("../service/auth");
+const ReviewType = require("./types/review_type");
 
 const Genre = mongoose.model("genres");
 const Product = mongoose.model("products");
 const User = mongoose.model("users")
+const Review = mongoose.model("reviews")
 
 const mutation = new GraphQLObjectType({
   name: "Mutation",
@@ -125,6 +127,10 @@ const mutation = new GraphQLObjectType({
               genre.save()
             })
         )
+        User.findById(product.owner).then(user => {
+          user.products.pull(product._id)
+          user.save()
+        })
 
         return product.deleteOne()
       }
@@ -167,6 +173,87 @@ const mutation = new GraphQLObjectType({
         );
       }
     },
+    newReview: {
+      type: ReviewType,
+      args: {
+        title: {type: GraphQLString},
+        content: {type: GraphQLString},
+        rating: {type: GraphQLInt},
+        product: {type: GraphQLID},
+        reviewer: {type: GraphQLID} 
+      },
+      async resolve(parent, data, context) {
+        // auth for frontend
+        // const validUser = await AuthService.verifyUser( {token: context.token} )
+
+        // if(validUser.loggedIn) {
+          // data.reviewer = validUser.id;
+          const review = new Review(data)
+          return Product.findById(data.product).then(product => {
+            product.reviews.push(review)
+            return User.findById(data.reviewer).then(user => {
+              user.reviews.push(review)
+              return Promise.all([product.save(), review.save(), user.save()] ).then(
+                  ([product,review, user]) => {
+                    console.log(review)
+                    return review
+                  }
+                )
+              })
+            }
+          )
+        // } else {
+        //   throw new Error("You must be logged in to leave a review")
+        // }
+      }
+    },
+    deleteReview: {
+      type: ReviewType,
+      args: {
+        id: {type: GraphQLID }
+      },
+      resolve(parent, {id}) {
+        const review = Review.findById(id)
+        User.findById(review.reviewer).then(user => {
+          user.reviews.pull(review._id)
+          user.save()
+        })
+        Product.findById(review.product).then(product => {
+          product.reviews.pull(review._id)
+          product.save()
+        })
+
+        return review.deleteOne()
+      }
+    },
+    updateReview: {
+      type: ReviewType,
+      args: {
+        _id: {type: GraphQLID},
+        title: {type: GraphQLString},
+        content: {type: GraphQLString},
+        rating: {type: GraphQLFloat},
+        
+      },
+      resolve(parentValue, {_id, title, content, rating}) {
+        const updateObj = {};
+
+        if(_id) updateObj._id = _id
+        if(title) updateObj.title = title
+        if(content) updateObj.content = content
+        if(rating) updateObj.rating = rating
+        
+
+        return Review.findByIdAndUpdate(
+          { _id: _id },
+          { $set: updateObj },
+          { new : true},
+          (err, review) => {
+            return review
+          }
+        );
+      }
+    }
   }//end of fields
 });
 

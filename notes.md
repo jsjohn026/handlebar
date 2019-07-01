@@ -27,3 +27,9 @@ users
   - author_id
   - product_id
   
+
+
+Logo Design Details:
+tool: pixlr editor
+H-> American Typewriter
+    color: #d4d4d4
