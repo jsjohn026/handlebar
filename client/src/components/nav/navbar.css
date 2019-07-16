@@ -54,21 +54,25 @@
   margin: 0 1rem;
 }
 
-.nav-auth-modal:hover {
+.nav-auth-modal:hover,
+.header-nav-text a:hover {
   cursor: pointer;
 }
 
-.nav-auth-modal {
+.nav-auth-modal,
+.header-nav-text a {
   position: relative;
   font-weight: 500;
   text-transform: uppercase;
 }
 
-.nav-auth-modal:hover:after {
+.nav-auth-modal:hover:after,
+.header-nav-text a:hover:after {
   width: 100%;
 }
 
-.nav-auth-modal:after {
+.nav-auth-modal:after,
+.header-nav-text a:after {
   position: absolute;
   content: "";
   display: block;
@@ -102,11 +106,18 @@
   color: white;
   font-weight: bold;
   margin-right: 15px;
+  border: 2px solid transparent;
+  box-sizing: content-box;
 }
+
 
 .navbar-user-avatar:hover {
   border: 2px solid #fdcf41;
   cursor: pointer;
+}
+
+.navbar-user-avatar:focus {
+  outline: none;
 }
 
 .navbar-search i:hover, .notifications:hover {
