@@ -1,6 +1,6 @@
 import React from "react";
 import Login from "../auth/Login";
-import { NavLink } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import "./modal.css";
 
 class LoginModal extends React.Component {
@@ -8,6 +8,7 @@ class LoginModal extends React.Component {
     super(props);
     this.handleClick = this.handleClick.bind(this);
     this.state = { openModal: false }
+    this.parentComp = props.parentComp;
   }
 
   handleClick(e) {
@@ -17,14 +18,10 @@ class LoginModal extends React.Component {
   }
 
   render() {
+    if (this.props.location.pathname === "/login" || this.props.location.pathname === "/register") return null;
     return (
-        <>
-          <NavLink 
-          to="/login"
-          onClick={this.handleClick}
-          >
-            LOG IN
-          </NavLink>
+      <>
+        <a className={`${this.parentComp}-auth-modal`} onClick={this.handleClick}>log in</a>
           {this.state.openModal ? (
             <>
               <div
@@ -37,14 +34,13 @@ class LoginModal extends React.Component {
                 <Login />
               </div>
             </>
-          ) : null
-          }
-        </>
+        ) : null}
+      </>
     )
   }
 }
 
-export default LoginModal;
+export default withRouter(LoginModal);
 
 // login button to open modal, click handler to set openmodal state to true
 // two inner components that would only be rendered if true

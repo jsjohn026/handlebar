@@ -1,10 +1,9 @@
 import React from "react";
 import { withRouter, Link } from "react-router-dom";
 import { Mutation, withApollo, ApolloConsumer  } from "react-apollo";
-import { LOGIN_USER, VERIFY_USER } from "../../graphql/mutations";
-import { CURRENT_USER } from '../../graphql/queries'
+import { LOGIN_USER } from "../../graphql/mutations";
+import SignUpModal from "../modal/signup_modal";
 import "../../styles/auth.css";
-import { createHttpLink } from "apollo-link-http";
 
 
 class Login extends React.Component {
@@ -47,6 +46,8 @@ class Login extends React.Component {
 
   render() {
     const { email, password, message } = this.state;
+    const insteadLink = this.props.location.pathname === "/login" ? <Link to="/register">Create Account</Link> : <SignUpModal parentComp="login" />;
+
      return (
       <ApolloConsumer>
       {(client) => (
@@ -64,7 +65,7 @@ class Login extends React.Component {
             <div className="auth-page-container">
               <div className="auth-form-container">
                 <h1>Log into Handlebar</h1>
-                <span>Or <Link to="/register">Create Account</Link></span>
+                <span>Or {insteadLink}</span>
                 <div className="auth-form-error-message">{message}</div>
                 <form className="auth-form" onSubmit={event => this.handleSubmit(event, loginUser)}>
                   <input className="auth-form-input" value={this.state.email} onChange={this.updateInput("email")} placeholder="Email Address" />

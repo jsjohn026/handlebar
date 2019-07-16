@@ -25,20 +25,3 @@
   z-index: 1003;
   animation-name: slidedown;
 }
-
-.modal-close {
-  position: fixed;
-  right: 15px;
-  top: 14px;
-  background: transparent;
-  border: none;
-}
-
-.modal-close i {
-  font-size: 32px;
-  color: #8e8e8e;
-}
-
-.modal-close:hover {
-  cursor: pointer;
-}
