@@ -1,13 +1,15 @@
 import React from "react";
 import Register from "../auth/Register";
-import { NavLink } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import "./modal.css";
+import "../../styles/auth.css";
 
 class SignUpModal extends React.Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
     this.state = { openModal: false }
+    this.parentComp = props.parentComp;
   }
 
   handleClick(e) {
@@ -17,31 +19,26 @@ class SignUpModal extends React.Component {
   }
 
   render() {
+    if (this.props.location.pathname === "/login" || this.props.location.pathname === "/register") return null;
     return (
       <>
-        <NavLink
-          to="/register"
-          onClick={this.handleClick}
-        >
-          SIGN UP
-          </NavLink>
-        {this.state.openModal ? (
-          <>
-            <div
-              onClick={this.handleClick}
-              className="modal-background"
-            >
-            </div>
+        <a className={`${this.parentComp}-auth-modal`} onClick={this.handleClick}>sign up</a>
+          {this.state.openModal ? (
+            <>
+              <div
+                onClick={this.handleClick}
+                className="modal-background"
+              >
+              </div>
 
-            <div className="modal-content">
-              <SignUpModal />
-            </div>
-          </>
-        ) : null
-        }
+              <div className="modal-content">
+                <Register />
+              </div>
+            </>
+        ) : null}
       </>
     )
   }
 }
 
-export default SignUpModal;
+export default withRouter(SignUpModal);

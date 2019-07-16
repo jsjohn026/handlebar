@@ -1,9 +1,6 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import { LOGOUT_USER } from "../../graphql/mutations";
-import { Mutation, withApollo, ApolloConsumer } from "react-apollo";
-import { CURRENT_USER } from '../../graphql/queries';
-import { createHttpLink } from "apollo-link-http";
+import { Link, withRouter } from "react-router-dom";
+import { withApollo } from "react-apollo";
 import "./user_dropdown.css";
 
 class UserDropdown extends Component {
@@ -15,10 +12,10 @@ class UserDropdown extends Component {
 
     this.showDropdown = this.showDropdown.bind(this);
     this.closeDropdown = this.closeDropdown.bind(this);
+    this.logout = this.logout.bind(this);
   }
 
   showDropdown(event) {
-    event.preventDefault();
     this.setState({ showDropdown: true }, () => {
       document.addEventListener('click', this.closeDropdown);
     });
@@ -32,41 +29,34 @@ class UserDropdown extends Component {
     }
   }
 
+  logout(event) {
+    localStorage.removeItem("auth-token");
+    this.props.client.cache.writeData({
+      data: {
+        isLoggedIn: false,
+        cart: []
+      }
+    });
+    setTimeout(() => {
+      window.location.reload();
+    }, 1000);
+  } 
+
   render() {
     return (
       <div>
-        <button onClick={this.showDropdown}
-          className="navbar-user-avatar"
-        >
-          user
-        </button>
+        <button onClick={this.showDropdown}className="navbar-user-avatar">user</button>
 
       {this.state.showDropdown ? (
           <div className="user-dropdown-menu"
           ref={(element) => {
             this.dropdownMenu = element;
-          }}
-          >
+          }}>
             <ul className="user-dropdown-content">
               <li><Link to="#">Profile</Link></li>
               <li><Link to="#">Saved</Link></li>
               <li><Link to="#">Transactions</Link></li>
-              <li>LOGOUT
-              {/* <button
-                onClick={e => {
-                  e.preventDefault();
-                  localStorage.removeItem("auth-token");
-                  client.writeData({
-                    data: {
-                      isLoggedIn: false,
-                      cart: []
-                    }
-                  });
-                }}
-              >
-                LOGOUT
-              </button> */}
-              </li>
+              <li onClick={this.logout}>Logout</li>
             </ul>
           </div>
         ) : (
@@ -77,4 +67,4 @@ class UserDropdown extends Component {
   }
 }
 
-export default UserDropdown;
+export default withApollo(withRouter(UserDropdown));
