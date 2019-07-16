@@ -20,6 +20,7 @@
   font-size: 24px;
   margin-bottom: 24px;
   font-weight: 500;
+  color: black;
 }
 
 .auth-page-container span {
@@ -27,16 +28,24 @@
 }
 
 .auth-page-container span,
-.auth-page-container a {
+.auth-page-container a,
+.login-auth-modal,
+.register-auth-modal {
   color: rgb(161,161,161);
   font-size: 14px;
 }
 
-.auth-page-container a {
+.auth-page-container a ,
+.login-auth-modal,
+.register-auth-modal {
+  cursor: pointer;
+  text-transform: capitalize;
   text-decoration: underline;
 }
 
-.auth-page-container a:hover {
+.auth-page-container a:hover,
+.login-auth-modal:hover,
+.register-auth-modal:hover {
   color: rgb(136,136,136);
 }
 

@@ -2,6 +2,7 @@ import React from "react";
 import { withRouter, Link } from "react-router-dom";
 import { Mutation } from "react-apollo";
 import { REGISTER_USER } from "../../graphql/mutations";
+import LoginModal from "../modal/login_modal";
 
 class Register extends React.Component {
   constructor(props) {
@@ -42,6 +43,8 @@ class Register extends React.Component {
   
   render() {
     const { name, email, password, message } = this.state;
+    const insteadLink = this.props.location.pathname === "/register" ? <Link to="/login">Log In</Link> : <LoginModal parentComp="register" />;
+    
     return (
       <Mutation
         mutation={REGISTER_USER}
@@ -56,7 +59,7 @@ class Register extends React.Component {
           <div className="auth-page-container">
             <div className="auth-form-container">
               <h1>Register for Handlebar</h1>
-              <span>Already have an account? <Link to="/login">Log In</Link></span>
+              <span>Already have an account? {insteadLink}</span>
               <div className="auth-form-error-message">{message}</div>
               <form className="auth-form" onSubmit={event => this.handleSubmit(event, registerUser)}>
                 <input className="auth-form-input" type="text" value={this.state.name} onChange={this.updateInput("name")} placeholder="Name"></input>
