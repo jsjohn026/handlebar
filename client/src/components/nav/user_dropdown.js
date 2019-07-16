@@ -39,7 +39,7 @@ class UserDropdown extends Component {
     });
     setTimeout(() => {
       window.location.reload();
-    }, 250);
+    }, 1000);
   } 
 
   render() {
