@@ -22,7 +22,9 @@ persistCache({
 });
 
 const httpLink = createHttpLink({
-  uri: "http://localhost:5000/graphql",
+  uri: process.env.NODE_ENV === "production"  ?
+    "https://handlebar-store.herokuapp.com/graphql" :
+    "http://localhost:5000/graphql",
   headers:  {
     authorization: localStorage.getItem("auth-token")
   }

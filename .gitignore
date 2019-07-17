@@ -1,4 +1,4 @@
 /node_modules
-/config
+/config/keys_dev.js
 docker-compose.yml
 .DS_Store
