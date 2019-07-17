@@ -24,11 +24,11 @@ const NavBar = props => {
                       style={{ backgroundImage: `url(${Logo})` }}>
                       </div>
                       </NavLink>
-                    <ul className="header-nav-left-items">
+                    {/* <ul className="header-nav-left-items">
                       <li className="header-nav-text"><NavLink to="/products">SHOP</NavLink></li>
                       <li className="header-nav-text"><NavLink to="">STUDIO</NavLink></li>
                       <li className="header-nav-text"><NavLink to="/genres">INTERESTS</NavLink></li>
-                    </ul>
+                    </ul> */}
                     <ul className="header-nav-right-items">
                       <li className="navbar-search">
                         <i className="fas fa-search fa-lg"></i></li>
@@ -42,8 +42,12 @@ const NavBar = props => {
               return (
                 <header className="header">
                   <nav className="header-nav-items">
-                  <div className="header-logo" style={{backgroundImage: `url(${Logo})`}}>
-                  </div>
+                    <NavLink to="/">
+                      <div 
+                      className="header-logo" 
+                      style={{ backgroundImage: `url(${Logo})` }}>
+                      </div>
+                    </NavLink>
                     <ul className="header-nav-right-items">
                       <li className="header-nav-text">
                        <SignUpModal parentComp="nav"/>

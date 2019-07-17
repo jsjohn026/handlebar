@@ -19,6 +19,7 @@ time, mark, audio, video {
 	vertical-align: baseline;
 	-webkit-font-smoothing: antialiased;
 	color: inherit;
+	text-decoration: none;
 }
 
 article, aside, details, figcaption, figure, 
