@@ -33,8 +33,7 @@ class UserDropdown extends Component {
     localStorage.removeItem("auth-token");
     this.props.client.cache.writeData({
       data: {
-        isLoggedIn: false,
-        cart: []
+        isLoggedIn: false
       }
     });
     setTimeout(() => {
