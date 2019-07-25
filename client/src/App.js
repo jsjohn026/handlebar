@@ -21,6 +21,7 @@ const App = () => {
         <AuthRoute exact path="/products/new" component={ProductCreate} />
         <AuthRoute exact path="/genres" component={GenreIndex} />
         <AuthRoute exact path="/genres/:genreId" component={ProductIndex} />
+        <AuthRoute exact path="/genres/" component={GenreIndex} />
         <AuthRoute exact path="/products/:productId" component={ProductDetail} />
         <AuthRoute exact path="/login" component={Login} routeType="auth" />
         <AuthRoute exact path="/register" component={Register} routeType="auth"/>

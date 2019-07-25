@@ -13,15 +13,8 @@ export class Main extends Component {
           <Carousel />
           <div className="splash-description-container" >
             <div className="splash-description">
-              <h1 className="splash-description-header"> What is Handlebar?</h1>
               <p className="splash-description-text">
-                Handlebar is a nifty website that allows user to market their goods, 
-                as well as discover new goods related to their interest.  
-                There's plenty of genres to choose 
-                and more being added from other 
-                user so you're certain to find something you like.
-                Not just a stache, it's goods.
-                
+              Handlebar... Your one stop shop to handle selling and buying goods
               </p>
             </div>
           </div>
