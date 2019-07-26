@@ -5,8 +5,29 @@ import LoginModal from "../modal/login_modal";
 import SignUpModal from "../modal/signup_modal";
 import "./navbar.css";
 import { IS_LOGGED_IN } from "../../graphql/queries";
+import { LOGIN_USER } from "../../graphql/mutations";
 import Logo from "../../assets/handlebar-logo.png";
 import UserDropdown from "../nav/user_dropdown";
+
+async function updateCache(client) {
+  client.cache.writeData({
+    data: { 
+      isLoggedIn: true
+    }
+  });
+
+  setTimeout(() => {
+    window.location.reload();
+  }, 1000);
+};
+
+const demoLogin = client => {
+  client.mutate({ 
+    mutation: LOGIN_USER, 
+    variables: { email: "Jimmy@Jimmy.com", password: "123456" } 
+  });
+  updateCache(client);
+};
 
 const NavBar = props => {
   return (
@@ -49,6 +70,9 @@ const NavBar = props => {
                       </div>
                     </NavLink>
                     <ul className="header-nav-right-items">
+                      <li className="header-nav-text" onClick={() => demoLogin(client)}>
+                      <a className="nav-auth-modal">DEMO LOGIN</a>
+                      </li>
                       <li className="header-nav-text">
                        <SignUpModal parentComp="nav"/>
                       </li>
@@ -65,6 +89,6 @@ const NavBar = props => {
       )}
     </ApolloConsumer >
   )
-}
+};
 
 export default NavBar;

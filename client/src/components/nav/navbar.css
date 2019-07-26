@@ -54,25 +54,21 @@
   margin: 0 1rem;
 }
 
-.nav-auth-modal:hover,
-.header-nav-text a:hover {
+.nav-auth-modal:hover {
   cursor: pointer;
 }
 
-.nav-auth-modal,
-.header-nav-text a {
+.nav-auth-modal {
   position: relative;
   font-weight: 500;
   text-transform: uppercase;
 }
 
-.nav-auth-modal:hover:after,
-.header-nav-text a:hover:after {
+.nav-auth-modal:hover:after {
   width: 100%;
 }
 
-.nav-auth-modal:after,
-.header-nav-text a:after {
+.nav-auth-modal:after{
   position: absolute;
   content: "";
   display: block;
