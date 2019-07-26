@@ -44,6 +44,7 @@ class Register extends React.Component {
   render() {
     const { name, email, password, message } = this.state;
     const insteadLink = this.props.location.pathname === "/register" ? <Link to="/login">Log In</Link> : <LoginModal parentComp="register" />;
+    const style = this.props.modal ? { height: "100%" } : {};
     
     return (
       <Mutation
@@ -56,7 +57,7 @@ class Register extends React.Component {
         update={(client, data) => this.updateCache(client, data)}
         onError={this.handleError}>
         {registerUser => (
-          <div className="auth-page-container">
+          <div className="auth-page-container" style={style}>
             <div className="auth-form-container">
               <h1>Register for Handlebar</h1>
               <span>Already have an account? {insteadLink}</span>

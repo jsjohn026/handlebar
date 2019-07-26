@@ -32,7 +32,7 @@ class SignUpModal extends React.Component {
               </div>
 
               <div className="modal-content">
-                <Register />
+                <Register modal={true}/>
               </div>
             </>
         ) : null}
