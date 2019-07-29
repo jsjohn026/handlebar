@@ -31,7 +31,7 @@ class LoginModal extends React.Component {
               </div>
               
               <div className="modal-content">
-                <Login />
+                <Login modal={true}/>
               </div>
             </>
         ) : null}

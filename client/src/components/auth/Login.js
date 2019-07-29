@@ -23,7 +23,6 @@ class Login extends React.Component {
   }
 
  async updateCache(cache, { data }, client) {
-    
     cache.writeData({
       data: { 
         isLoggedIn: data.login.loggedIn
@@ -47,7 +46,7 @@ class Login extends React.Component {
   render() {
     const { email, password, message } = this.state;
     const insteadLink = this.props.location.pathname === "/login" ? <Link to="/register">Create Account</Link> : <SignUpModal parentComp="login" />;
-
+    const style = this.props.modal ? { height: "100%" } : {};
      return (
       <ApolloConsumer>
       {(client) => (
@@ -57,12 +56,11 @@ class Login extends React.Component {
             onCompleted={data => {
               const { token } = data.login;
               localStorage.setItem('auth-token', token);
-              console.log(client)
               this.props.history.push('/');
             }}
           onError={this.handleError}>
           {loginUser => (
-            <div className="auth-page-container">
+            <div className="auth-page-container" style={style}>
               <div className="auth-form-container">
                 <h1>Log into Handlebar</h1>
                 <span>Or {insteadLink}</span>
