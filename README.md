@@ -1,6 +1,6 @@
 # Handlebar
 
-[![](https://github.com/jsjohn026/Handlebar/blob/master/client/src/assets/images/handlebar-logo.png)](https://github.com/jsjohn026/Handlebar/blob/master/client/src/assets/images/handlebar-logo.png)
+[![Handlebar Logo](https://github.com/jsjohn026/Handlebar/blob/master/client/src/assets/images/handlebar-logo.png)](https://github.com/jsjohn026/Handlebar/blob/master/client/src/assets/images/handlebar-logo.png)
 
 Handlebar is a web-based application that allows users to review, purchase, and sell goods in an online marketplace.
 
