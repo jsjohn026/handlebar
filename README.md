@@ -2,7 +2,7 @@
 
 [![](https://github.com/jsjohn026/Handlebar/blob/master/app/assets/images/header-icon-192x192.png)](https://github.com/jsjohn026/Handlebar/blob/master/app/assets/images/header-icon-192x192.png)
 
-Handlebar is a web-based application where you review, purchase, and sell goods in an online marketplace.
+Handlebar is a web-based application that allows users to review, purchase, and sell goods in an online marketplace.
 
 ## Background and Overview
 
@@ -42,60 +42,6 @@ Node Image
 -   Docker
 -   Heroku
 
-
-## Group Members & Work Breakdown
-
-### **Gordy Cooper**
-
-### **Jasmine John**
-
-### **David Suon**
-
-### GIT Workflow
-  - after a merged pull request or before creating one...
-  - in your local repository...
-    - git pull origin <feature_branch>
-    - resolve any merge conflicts
-    - commit changes
-    - git push <feature_branch>
-
-## June 21 - July 1
-
-### Day 1 (Friday)
-  - MongoDB database setup - **all**
-  - Setup project skeleton - **all**
-  - Docker configuration - **all**
-
-
-### Day 2 (Monday)
-  - User Auth
-    - Backend - **David**
-    - Frontend - **Gordy**
-  - Splash & NavBar - **Jasmine**
-
-
-### Day 3
-  - Goods & Genres
-
-
-### Day 4
-  - Shopping Basket
-
-
-### Day 5
-  - Beef/Props & Ratings
-
-
-### Day 6 (Friday)
-  - SearchBar
-  - Production Readme
-  - Heroku Deploy
-
-
-### Day 7 (Monday)
-  - Present
-
-
 Overview
 ----------------------------------------------------------
 
@@ -105,7 +51,7 @@ Overview
 
 Handlebar is a single-page clone of AirBnb. Users can search from a selection of listed homes to stay based on location and the number of guests they are traveling with.
 
-[![alt text](https://github.com/jsjohn026/Handlebar/blob/master/app/assets/images/Handlebar_landing_page.png "Session Modal")](https://github.com/jsjohn026/Handlebar/blob/master/app/assets/images/Handlebar_landing_page.png)
+[![alt text](https://github.com/jsjohn026/Handlebar/blob/master/app/assets/images/Handlebar_landing_page.png "Session Modal")](https://github.com/jsjohn026/Handlebar/blob/master/app/assets/images/landing.png)
 
 
 Pages
