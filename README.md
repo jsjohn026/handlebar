@@ -51,7 +51,7 @@ Overview
 
 Handlebar is a single-page clone of AirBnb. Users can search from a selection of listed homes to stay based on location and the number of guests they are traveling with.
 
-[![alt text](https://github.com/jsjohn026/Handlebar/blob/master/app/assets/images/Handlebar_landing_page.png "Session Modal")](https://github.com/jsjohn026/Handlebar/blob/master/app/assets/images/landing.png)
+[![alt text](https://github.com/jsjohn026/Handlebar/blob/master/app/assets/images/landing.png "Session Modal")](https://github.com/jsjohn026/Handlebar/blob/master/app/assets/images/landing.png)
 
 
 Pages
