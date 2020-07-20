@@ -2,7 +2,7 @@
 
 # Handlebar
 
-Handlebar is a web-based application that allows users to review, purchase, and sell goods in an online marketplace.
+Handlebar is a web-based application that allows users to review, purchase, and sell goods in an online marketplace. It was partially inspired by Drop Studio and built using Express back end, a MongoDB database, Express, GraphQL, React & Apollo on the front end. 
 
 ## Background and Overview
 
@@ -49,7 +49,7 @@ Overview
 
 ### Introduction
 
-Handlebar is a single-page clone of AirBnb. Users can search from a selection of listed homes to stay based on location and the number of guests they are traveling with.
+Handlebar is a single-page app 
 
 [![alt text](https://github.com/jsjohn026/Handlebar/blob/master/app/assets/images/landing.png "Session Modal")](https://github.com/jsjohn026/Handlebar/blob/master/app/assets/images/landing.png)
 
